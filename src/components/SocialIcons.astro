@@ -1,0 +1,25 @@
+---
+import SocialIcon from "@components/SocialIcon.astro";
+import { SITE } from "@consts";
+
+export interface Props {
+    icon_size: string;
+}
+
+const { icon_size } = Astro.props;
+---
+
+<ul class="not-prose flex flex-wrap gap-2">
+    <SocialIcon
+        icon_size={icon_size}
+        URL="https://store.steampowered.com/app/1455130"
+        icon="steam"
+    />
+    <!-- <SocialIcon icon_size={icon_size} URL="#" icon="apple" />
+    <SocialIcon icon_size={icon_size} URL="#" icon="unity" /> -->
+    <SocialIcon
+        icon_size={icon_size}
+        URL={`${SITE.SITEURL}/rss.xml`}
+        icon="rss-fill"
+    />
+</ul>

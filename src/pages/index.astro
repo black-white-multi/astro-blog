@@ -2,7 +2,6 @@
 import ArrowCard from "@components/ArrowCard.astro";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
-import SocialIcons from "@components/SocialIcons.astro";
 import { HOME, SITE } from "@consts";
 import Layout from "@layouts/Layout.astro";
 import type { CollectionEntry } from "astro:content";
@@ -71,17 +70,7 @@ const publications: CollectionEntry<"publications">[] = (
           📢📢 Your important Information (Open for job/Recruiting students)
         </section> -->
 
-        <section class="animate space-y-6">
-          <span class="animate">
-            <h4 class="font-semibold text-black dark:text-white">
-              Let's Connect
-            </h4>
-            <article>
-              <p>e-mail: sprite2345@gmail.com</p>
-            </article>
-            <SocialIcons icon_size={"text-3xl"} />
-          </span>
-        </section>
+        
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">

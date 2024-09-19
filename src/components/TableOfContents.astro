@@ -20,7 +20,7 @@ function buildToc(headings: Heading[]) {
     if (heading.depth === 2) {
       toc.push(heading);
     } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      //parentHeadings.get(heading.depth - 1).subheadings.push(heading);
     }
   });
   return toc;
@@ -31,7 +31,7 @@ function buildToc(headings: Heading[]) {
   open
   class="animate rounded-lg border border-black/15 dark:border-white/20"
 >
-  <summary>Table of Contents</summary>
+  <summary>目录</summary>
   <nav class="">
     <ul class="py-3">
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}

@@ -6,7 +6,7 @@ export const SITE: Site = {
   EMAIL: "sprite2345@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 2,
   NUM_PUBLICATIONS_ON_HOMEPAGE: 3,
-  SITEURL: 'https://www.blackwhite.fun' // Update here to link the RSS icon to your website rss
+  SITEURL: 'https://glistening-malabi-fe84ec.netlify.app/' // Update here to link the RSS icon to your website rss
 };
 
 export const HIGHLIGHTAUTHOR = "BlackWhtie"

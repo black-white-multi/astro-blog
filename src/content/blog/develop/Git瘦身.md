@@ -1,7 +1,7 @@
 ---
 title: "Git瘦身"
 description: ""
-date: "2024-09-20"
+date: "2024-09-18"
 tags: ['Git']
 ---
 ## 1.下载bfg-1.14.0.jar (与git目录同级)

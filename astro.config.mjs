@@ -1,18 +1,18 @@
-import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
-import remarkToc from "remark-toc";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
-import remarkEmoji from 'remark-emoji';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
+import { defineConfig } from "astro/config";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypeKatex from "rehype-katex";
+import remarkEmoji from 'remark-emoji';
+import remarkMath from "remark-math";
+import remarkToc from "remark-toc";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-micro-academic.vercel.app",
+  site: "https://blackwhitefun.netlify.app",
   integrations: [tailwind(), sitemap(), mdx(), pagefind()],
   markdown: {
     shikiConfig: {
@@ -21,5 +21,5 @@ export default defineConfig({
     rehypePlugins: [rehypeHeadingIds, rehypeAccessibleEmojis, rehypeKatex],
     remarkPlugins: [remarkToc, remarkMath, remarkEmoji],
   },
-  server: { port: 1234, host: true}
+  server: { port: 1234, host: true }
 });

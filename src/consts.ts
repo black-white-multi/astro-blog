@@ -6,41 +6,37 @@ export const SITE: Site = {
   EMAIL: "sprite2345@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 2,
   NUM_PUBLICATIONS_ON_HOMEPAGE: 3,
-  SITEURL: 'https://glistening-malabi-fe84ec.netlify.app/' // Update here to link the RSS icon to your website rss
+  SITEURL: 'https://blackwhitefun.netlify.app/' // Update here to link the RSS icon to your website rss
 };
 
 export const HIGHLIGHTAUTHOR = "BlackWhtie"
 
 export const HOME: Metadata = {
   TITLE: "主页",
-  DESCRIPTION: "Astro Micro is an accessible theme for Astro.",
+  DESCRIPTION: "",
 };
 
 export const BLOG: Metadata = {
   TITLE: "博客",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION: "",
 };
 
 export const RESEARCH: Metadata = {
   TITLE: "Publications",
-  DESCRIPTION:
-    "A collection of my publications with links to paper, repositories and live demos.",
+  DESCRIPTION: "",
 };
 
 export const CV: Metadata = {
   TITLE: "CV",
-  DESCRIPTION:
-    "your cv",
+  DESCRIPTION: "",
 };
 
 export const TAGS: Metadata = {
   TITLE: "TAGS",
-  DESCRIPTION:
-    "blog tag filter",
+  DESCRIPTION: "",
 };
 
 export const ABOUT: Metadata = {
   TITLE: "关于",
-  DESCRIPTION:
-    "A self-intro",
+  DESCRIPTION: "",
 };

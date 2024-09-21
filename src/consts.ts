@@ -17,7 +17,7 @@ export const HOME: Metadata = {
 };
 
 export const BLOG: Metadata = {
-  TITLE: "博客",
+  TITLE: "文章",
   DESCRIPTION: "",
 };
 

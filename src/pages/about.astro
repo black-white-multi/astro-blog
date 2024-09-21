@@ -10,8 +10,32 @@ const url_external = true;
   <Container>
     <aside data-pagefind-ignore>
       <div class="space-y-10">
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black dark:text-white">
+              Research Interests
+            </h2>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            <li>Game Develop</li>
+            <li>Blender</li>
+            <li>3D Printing</li>
+          </ul>
+        </section>
+
+        <section class="animate space-y-6">
+          <span class="animate">
+            <h4 class="font-semibold text-black dark:text-white">
+              技术服务支持
+            </h4>
+            <article>
+              <p>email: sprite2345@gmail.com</p>
+            </article>
+          </span>
+        </section>
+
         <div class="animate font-semibold text-black dark:text-white">
-          About
+          参考资料
         </div>
         <div class="space-y-4">
           <section class="animate not-prose flex flex-col gap-4 text-justify">
@@ -42,25 +66,14 @@ const url_external = true;
                 href="https://markdown.com.cn/cheat-sheet.html"
                 external={url_external}
               >
-                Markdown 语法速查表
+                Markdown - 语法速查表
               </Link>
             </p>
             <p class="text-justify">
               <Link href="https://app.netlify.com/" external={url_external}>
-                Netlify
+                Netlify - 部署后台
               </Link>
             </p>
-          </section>
-
-          <section class="animate space-y-6">
-            <span class="animate">
-              <h4 class="font-semibold text-black dark:text-white">
-                技术服务支持
-              </h4>
-              <article>
-                <p>email: sprite2345@gmail.com</p>
-              </article>
-            </span>
           </section>
         </div>
       </div>

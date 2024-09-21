@@ -9,51 +9,26 @@ tags: ['MongoDB']
 
 查看版本
 
-```sh
 mongo --version
-```
 
-## 1. 备份
+---
 
-CentOS7
+## 1. 备份DB
 
-```sh
-mongodump
-```
+| 系统     | 命令                                                             |
+| :------- | :--------------------------------------------------------------- |
+| CentOS7  | mongodump                                                        |
+| UbuntuOS | sudo mongodump                                                   |
+| Windows  | mongodump -h 127.0.0.1:27017 -d RichMan -o D:\MongoDB\data\dump\ |
 
-***
-UbuntuOS
+---
 
-```sh
-sudo mongodump
-```
+## 2. 恢复DB
 
-***
-Windows
+| 系统     | 命令                                                                                             |
+| :------- | :----------------------------------------------------------------------------------------------- |
+| CentOS7  | mongorestore                                                                                     |
+| UbuntuOS | sudo mongorestore --db RichMan --drop /root/dump/backup202404271515/                             |
+| Windows  | mongorestore -h 127.0.0.1:27017 -d RichMan --dir D:\MongoDB\data\dump\RichMan202404271515 --drop |
 
-```sh
-mongodump -h 127.0.0.1:27017 -d RichMan -o D:\MongoDB\data\dump\
-```
-
-## 2.恢复
-
-CentOS7  
-
-```sh
-mongorestore
-```
-
-***
-UbuntuOS  
-
-```sh
-sudo mongorestore --db RichMan --drop /root/dump/backup202404271515/
-```
-
-***
-Windows
-
-```sh
-mongorestore -h 127.0.0.1:27017 -d RichMan 
---dir D:\MongoDB\data\dump\backup202404271515 --drop
-```
+---

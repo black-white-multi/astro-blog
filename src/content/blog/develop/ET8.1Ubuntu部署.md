@@ -78,7 +78,7 @@ sudo apt-get install -y dotnet-runtime-8.0
 
 ## 6. ET8 守护进程
 
-**路径 /etc/systemd/system/et_app.service**
+**路径 /etc/systemd/system/et_app.service**  
 
 systemctl stop et_app.service  
 
@@ -124,5 +124,5 @@ ETs\Publish\linux-x64  文件夹复制到云服务器
 注释 rules 中的ServerDebug  
 
 ```sh
-<!--   logger ruleName="ServerDebug"    -->
+<!--logger ruleName="ServerDebug"-->
 ```

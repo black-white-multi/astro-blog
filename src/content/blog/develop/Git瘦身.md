@@ -8,25 +8,19 @@ tags: ['Git']
 
 下载 [bfg-1.14.0.jar](https://rtyley.github.io/bfg-repo-cleaner)
 
-```sh
-git clone --mirror https://gitee.com/blackwhitefun/mahjongu3d.git
+git clone --mirror https://gitee.com/blackwhitefun/mahjongu3d.git  
 
-git clone --mirror E:\MahjongU3D
+git clone --mirror E:\MahjongU3D  
 
-java -jar bfg-1.14.0.jar --strip-blobs-bigger-than 1M number_one_rich.git
+java -jar bfg-1.14.0.jar --strip-blobs-bigger-than 1M number_one_rich.git  
 
-java -jar bfg-1.14.0.jar --delete-folders AdZoneAggregate D:\\number_one_rich.git
+java -jar bfg-1.14.0.jar --delete-folders AdZoneAggregate D:\\number_one_rich.git  
 
-java -jar bfg-1.14.0.jar --delete-folders Puerts D:\\mahjongu3d.git
-
-```
+java -jar bfg-1.14.0.jar --delete-folders Puerts D:\\mahjongu3d.git  
 
 ## 2. cd D:\\number_one_rich.git
 
-```sh
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
-
-```
 
 ## 3. git push
 
@@ -36,22 +30,21 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 ## Git回滚到指定版本
 
-```sh
-git reset --hard xxxxxxxxxxxxxxxxxxxxxxxxx
+git reset --hard xxxxxxxxxxxxxxxxxxxxxxxxx  
 
-git push -f
-```
+git push -f  
 
 ## Git图标
 
-- win+R 输入regedit,打开注册表
+win+R 输入regedit,打开注册表  
   
-- 路径：
+路径：
 
-- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
 
 ## 统计代码行数
 
-- VS -> Ctrl+Shift+F
-- 正则表达式
-- b*[^:b#/]+.*$
+VS -> Ctrl+Shift+F  
+
+正则表达式  
+b*[^:b#/]+.*$

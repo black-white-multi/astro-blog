@@ -16,45 +16,38 @@ df -ha
 
 **报错 Could not get lock /var/lib/dpkg/lock-frontend**  
 
-```sh
-sudo killall apt apt-get
+sudo killall apt apt-get  
 
-提示没有apt进程 apt: no process found
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
-sudo dpkg --configure -a
-```
+提示没有apt进程 apt: no process found  
+sudo rm /var/lib/apt/lists/lock  
+sudo rm /var/cache/apt/archives/lock  
+sudo rm /var/lib/dpkg/lock*  
+sudo dpkg --configure -a  
+sudo dpkg --configure -a  
 
 **按照文档安装**
 **在 Ubuntu 上安装 MongoDB Community Edition**
 
-```sh
-sudo apt-get install gnupg curl  (开启无性能约束)
-curl -fsSL <https://www.mongodb.org/static/pgp/server-6.0.asc> 
-| sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] 
-<https://repo.mongodb.org/apt/ubuntujammy/mongodb-org/6.0> multiverse" 
-| sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
-```
+sudo apt-get install gnupg curl  (开启无性能约束)  
+curl -fsSL <https://www.mongodb.org/static/pgp/server-6.0.asc> | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor  
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ]  
+<https://repo.mongodb.org/apt/ubuntujammy/mongodb-org/6.0> multiverse"  
+| sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list  
+sudo apt-get update  
+sudo apt-get install -y mongodb-org  
 
 ## 3.  启动MongoDB
 
-```sh
-sudo systemctl start mongod
-sudo systemctl daemon-reload
-sudo systemctl status mongod
-sudo systemctl enable mongod
-sudo systemctl restart mongod
+sudo systemctl start mongod  
+sudo systemctl daemon-reload  
+sudo systemctl status mongod  
+sudo systemctl enable mongod  
+sudo systemctl restart mongod  
 
-mongosh
-sudo service mongod stop
-```
+mongosh  
+sudo service mongod stop  
 
-硬盘满了导致Mongodb无法启动，使用命令才能启动
+硬盘满了导致Mongodb无法启动，使用命令才能启动  
 sudo chown -R mongodb:mongodb /var/lib/mongodb/*
 
 ## 4.  MongoDB 备份、恢复数据

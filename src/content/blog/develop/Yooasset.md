@@ -3,7 +3,7 @@ title: "Yooasset"
 description: ""
 date: "2024-09-27"
 tags: ['Yooasset']
-draft: true;
+draft: true
 ---
 
 首包配置

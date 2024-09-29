@@ -47,3 +47,7 @@ YooAsset   -> BuildBuildinFileManifest
 ## 6. ET Build
 
  ET -> Build Tool -> BuildPackge
+
+
+音效转换：
+https://github.com/BtbN/FFmpeg-Builds

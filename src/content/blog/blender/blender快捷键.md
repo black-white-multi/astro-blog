@@ -1,7 +1,7 @@
 ---
 title: "Blender快捷键"
 description: ""
-date: "2024-09-20"
+date: "2024-10-30"
 tags: ['Blender']
 ---
 ## 1. 快捷键
@@ -11,6 +11,7 @@ tags: ['Blender']
 - 边倒角 ctrl + b
 - 内插面 i  
 - 镜像内插 i+i
+- 雕刻曲线 alt + E 编辑曲线 ctrl + 右键
 
 ## 2. 拓扑插件 F2、LoopTools、BSurfaceMesh
 

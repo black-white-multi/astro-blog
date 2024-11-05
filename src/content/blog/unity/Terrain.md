@@ -23,5 +23,7 @@ PS图层 -> 右键 -> 混合选项 -> 选择对应通道
 - Substance Painter 绘制贴图
 
 **FGUI**  
-分离alpha通道
+
+分离alpha通道  
+
 UNITY开启宏 FAIRYGUI_USE_ALPHA_TEXTURE

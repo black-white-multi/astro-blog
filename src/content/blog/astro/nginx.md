@@ -37,21 +37,57 @@ server {
 上传至服务器/etc/nginx/cert/  
 修改配置文件/etc/nginx/sites-enabled/default  
 
+## 顶级域名配置  
+
 ~~~sh
 server {
+    listen 8082 default_server;
+    listen [::]:8082 default_server;
+
     listen 443 ssl default_server;
     listen [::]:443 ssl default_server;
+
+    ssl_certificate "/etc/nginx/cert/www.blackwhite.fun.pem";  
+    ssl_certificate_key "/etc/nginx/cert/www.blackwhite.fun.key";
+
+    root /var/www/html;
+
+    # Add index.php to the list if you are using PHP
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name www.blackwhite.fun;
+
+    location / {
+        root /var/www/html/dist;
+        index index.php index.html;
+        try_files $uri $uri/ =404;
+    }
+}
+~~~
+
+## 二级域名配置  
+
+~~~sh
+server {
+    listen 443 ssl;
 
     ssl_certificate "/etc/nginx/cert/blog.blackwhite.fun.pem";  
     ssl_certificate_key "/etc/nginx/cert/blog.blackwhite.fun.key";
 
     server_name blog.blackwhite.fun;
+    
+    root /var/www/html/blog;
 
-    #反向代理
     location ~ / {
-        #proxy_pass http://IP:8203;
-        proxy_pass https://blackwhiteblog.netlify.app;
+        index index.php index.html;
+        try_files $uri $uri/ =404;
     }
+}
+
+server {
+    listen 80;
+    server_name blog.blackwhite.fun;
+    return 301 https//$host$request_uri;
 }
 ~~~
 

@@ -17,11 +17,11 @@ mongo --version
 
 ### 备份  
 
-Connection Manager SSH链接数据库
-Export 选择 BSON - mongodump archive
+Connection Manager SSH链接数据库  
+Export 选择 BSON - mongodump archive  
 保存文件
 
 ### 恢复  
 
-Import 选择 BSON - mongodump archive
+Import 选择 BSON - mongodump archive  
 选择文件

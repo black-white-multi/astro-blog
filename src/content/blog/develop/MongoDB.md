@@ -29,6 +29,6 @@ mongo --version
 | :------- | :----------------------------------------------------------------------------------------------- |
 | CentOS7  | mongorestore                                                                                     |
 | UbuntuOS | sudo mongorestore --db RichMan --drop /root/dump/backup202404271515/                             |
-| Windows  | mongorestore -h 127.0.0.1:27017 -d RichMan --dir D:\MongoDB\data\dump\RichMan202404271515 --drop |
+| Windows  | mongorestore -h 127.0.0.1:27017 -d RichMan --dir D:\MongoDB\data\dump\RichMan202501251050 --drop |
 
 ---

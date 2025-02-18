@@ -13,22 +13,15 @@ mongo --version
 
 ---
 
-## 1. 备份DB
+## Studio 3T  
 
-| 系统     | 命令                                                             |
-| :------- | :--------------------------------------------------------------- |
-| CentOS7  | mongodump                                                        |
-| UbuntuOS | sudo mongodump                                                   |
-| Windows  | mongodump -h 127.0.0.1:27017 -d RichMan -o D:\MongoDB\data\dump\ |
+### 备份  
 
----
+Connection Manager SSH链接数据库
+Export 选择 BSON - mongodump archive
+保存文件
 
-## 2. 恢复DB
+### 恢复  
 
-| 系统     | 命令                                                                                             |
-| :------- | :----------------------------------------------------------------------------------------------- |
-| CentOS7  | mongorestore                                                                                     |
-| UbuntuOS | sudo mongorestore --db RichMan --drop /root/dump/backup202404271515/                             |
-| Windows  | mongorestore -h 127.0.0.1:27017 -d RichMan --dir D:\MongoDB\data\dump\RichMan202501251050 --drop |
-
----
+Import 选择 BSON - mongodump archive
+选择文件

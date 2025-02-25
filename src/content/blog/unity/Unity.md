@@ -27,3 +27,13 @@ PS图层 -> 右键 -> 混合选项 -> 选择对应通道
 分离alpha通道  
 
 UNITY开启宏 FAIRYGUI_USE_ALPHA_TEXTURE
+
+## 音频转换格式
+
+https://github.com/BtbN/FFmpeg-Builds
+
+~~~bash
+ffmpeg -i input.mp3 output.wav      # MP3 → WAV
+ffmpeg -i input.aac output.flac     # AAC → FLAC
+ffmpeg -i input.m4a output.ogg      # M4A → OGG
+~~~

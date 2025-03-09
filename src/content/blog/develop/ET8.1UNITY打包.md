@@ -47,3 +47,15 @@ YooAsset   -> BuildBuildinFileManifest
 ## 6. ET Build
 
  ET -> Build Tool -> BuildPackge
+
+## 7. Xcode 打包
+
+1. Signing & Capabilities 设置证书包名
+2. 设置版本 Bundle version
+3. Info.plist
+   * App Uses Non-Exempt Encryption : NO
+   * Privacy - Camera Usage Description
+   * AuthenticationServices.framework
+4. 测试包
+   * 删除支付
+   * UnityFramework 加入 StoreKit.framework

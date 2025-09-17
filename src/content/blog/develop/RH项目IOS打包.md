@@ -47,7 +47,7 @@ pod install --verbose --no-repo-update
 
 ### 配置Frameworks(FacebookSDK)  
 
-Unity-Phone → General → Frameworks, Libraries, and Embedded Content
+Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
 FBAEMKit  
 FBSDKCoreKit  
 FBSDKCoreKit_Basics  

@@ -5,8 +5,9 @@ date: "2025-09-17"
 tags: ['Unity']
 ---
 
-## YooAsset 打包  
+## Unity YooAsset打包  
 
+### 打包Bundle
 YooAsset -> AssetBundle Builder  
 
 配置  
@@ -20,10 +21,14 @@ Copy Buildin File Option -> None
 打开mac项目的StreamingAssets/Bundles终端窗口
 
 上传  
+~~~sh
 ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u
+~~~
 
 删除  
+~~~sh
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
+~~~
 
 ## FacebookSDK Mac环境配置  
 
@@ -42,9 +47,9 @@ git config --global http.proxy http://127.0.0.1:1080
 git clone https://github.com/CocoaPods/Specs.git master  
 
 ### Xcode项目进入终端初始化pod  
-
+~~~sh
 pod install --verbose --no-repo-update  
-
+~~~
 ### 配置Frameworks(FacebookSDK)  
 
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
@@ -54,3 +59,7 @@ FBSDKCoreKit_Basics
 FBSDKGamingServicesKit  
 FBSDKLoginKit  
 FBSDKShareKit  
+
+## 打开Xcode项目打包  
+
+Unity-iPhone.xcworkspace  

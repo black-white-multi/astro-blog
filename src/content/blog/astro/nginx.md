@@ -1,7 +1,7 @@
 ---
 title: "Nginx"
 description: ""
-date: "2024-09-01"
+date: "2024-09-30"
 tags: ['Nginx']
 draft: false
 ---

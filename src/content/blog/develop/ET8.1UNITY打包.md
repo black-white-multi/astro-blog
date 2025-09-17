@@ -1,7 +1,7 @@
 ---
 title: "ET8.1 UNITY打包"
 description: ""
-date: "2024-09-25"
+date: "2025-06-5"
 tags: ['工作流','ET']
 ---
 ## 1. FGUI发布
@@ -60,3 +60,15 @@ YooAsset   -> BuildBuildinFileManifest
 5. 测试包
    * 删除支付
    * UnityFramework 加入 StoreKit.framework
+
+
+---  
+音效转换:  
+https://github.com/BtbN/FFmpeg-Builds  
+
+编译报错  
+GlobalConfig(CodeMode = Client)  
+需要删除  
+\ET\Unity\Assets\Scripts\Model\Generate{CodeMode}\Igonre.asmdef  
+
+---

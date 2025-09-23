@@ -65,4 +65,4 @@ FBSDKShareKit
 Unity-iPhone.xcworkspace  
 
 ## 远程珠海GS-win10
-xx.blackwhite.fun:103389  Administrator  
+xx.blackwhite.fun:33389  Administrator  

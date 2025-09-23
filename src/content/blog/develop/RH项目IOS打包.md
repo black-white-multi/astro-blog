@@ -63,3 +63,6 @@ FBSDKShareKit
 ## 打开Xcode项目打包  
 
 Unity-iPhone.xcworkspace  
+
+## 远程珠海GS-win10
+xx.blackwhite.fun:103389  Administrator  

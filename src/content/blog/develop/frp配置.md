@@ -1,8 +1,8 @@
 ---
 title: "frp配置"
 description: ""
-date: "2025-09-01"
-tags: ['']
+date: "2025-09-21"
+tags: ['frp']
 ---
 
 ## Ubuntu安装frps  

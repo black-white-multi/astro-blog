@@ -2,7 +2,7 @@
 title: "RH项目IOS打包"
 description: ""
 date: "2025-09-25"
-tags: ['Unity']
+tags: ['工作流']
 ---
 
 ## Unity YooAsset打包  
@@ -64,5 +64,6 @@ FBSDKShareKit
 
 Unity-iPhone.xcworkspace  
 
-## 远程珠海GS-win10
-xx.blackwhite.fun:33389  Administrator  
+## 远程珠海frps查看端口
+zhuhai-gs-win10  Administrator  
+zhuhai-gs-git-3389  Admin 1234

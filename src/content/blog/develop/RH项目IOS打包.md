@@ -1,30 +1,30 @@
 ---
 title: "RH项目IOS打包"
 description: ""
-date: "2025-09-17"
+date: "2025-09-25"
 tags: ['Unity']
 ---
 
 ## Unity YooAsset打包  
 
-### 打包Bundle
-YooAsset -> AssetBundle Builder  
+1. NGUI需要Reimport  
+目录Bundles/UI  
 
+2. 打包Bundle  
+YooAsset -> AssetBundle Builder  
 配置  
 Build Version   ->   v100  
 Build Mode  ->  增量  
 File Name Style -> BundleName_HashName  
 Copy Buildin File Option -> None  
 
-### Bundle上传OSS
-
+3. Bundle上传OSS  
 打开mac项目的StreamingAssets/Bundles终端窗口
 
 上传  
 ~~~sh
 ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u
 ~~~
-
 删除  
 ~~~sh
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r

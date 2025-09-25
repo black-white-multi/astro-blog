@@ -18,4 +18,20 @@ tags: ['Git']
 地址:https://nssm.cc/download  
 2. cmd: nssm install gogsgit  
 3. 选择gogs.exe  
-4. 参数web 
+4. 参数web  
+
+## frps服务器配置nginx
+目录/etc/nginx/conf.d/gogs_proxy.conf  
+~~~sh
+server{
+	listen 80;
+	server_name gogs.korax.fun;
+	location / {
+		proxy_redirect off;
+		proxy_set_header Host $host;
+		proxy_set_header x-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://gogs.korax.fun:3303;
+	}
+}
+~~~

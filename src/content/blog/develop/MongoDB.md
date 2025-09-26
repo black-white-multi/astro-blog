@@ -36,12 +36,32 @@ net:
   bindIp: 0.0.0.0  # 修改为 0.0.0.0 或指定服务器公网 IP
 ~~~
 
+无验证模式先创建root用户  
+~~~sh
+use admin
+db.createUser({
+  user: "root",
+  pwd: "***", 
+  roles: [{ role: "readWrite", db: "admin" } , { role: "root", db: "admin" } ]
+})
+~~~
+
 开启身份连接验证  
-security:
+~~~sh
+#mac 用xcode编辑
+security:  
   authorization: enabled
+~~~
 
 重启MongoDB服务  
+ubuntu  
 sudo systemctl restart mongod
+
+mac  
+brew services restart mongodb/brew/mongodb-community@8.0
+
+mac检查状态  
+brew services list | grep mongo
 
 连接  
 mongodb://admin:pwd123456@<公网IP>:27017/admin?authSource=admin

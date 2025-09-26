@@ -20,6 +20,12 @@ webServer.port = 8303
 # dashboard 配置的用户名和密码，修改成自己的
 webServer.user = "sprite"
 webServer.password = "pwd********"
+
+# 配置允许frpc绑定的端口
+allowPorts = [
+  { single = 3303 },
+  { single = 37018 },
+]
 ~~~
 
 ## 设置开机自启动frps服务  

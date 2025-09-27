@@ -70,6 +70,19 @@ localPort = 3389
 remotePort = 13389
 ~~~
 
+mac命令
+~~~sh
+brew services start frpc
+
+brew services stop frpc
+
+# 重启frpc
+brew services restart frpc
+
+# 查看服务列表
+brew services list
+~~~
+
 ## NSSM 安装服务
 1. 下载nssm  
 地址:https://nssm.cc/download  

@@ -5,7 +5,10 @@ date: "2025-09-25"
 tags: ['工作流']
 ---
 
-## Unity YooAsset打包  
+## Ⅰ. Unity 配置
+Init配置Release
+
+## Ⅱ. YooAsset打包  
 
 1. NGUI需要Reimport  
 目录Bundles/UI  
@@ -30,9 +33,13 @@ ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 ~~~
 
-## FacebookSDK Mac环境配置  
+## Ⅲ. 打开Xcode项目打包  
 
-### 代理设置  
+Unity-iPhone.xcworkspace  
+
+### FacebookSDK Mac环境配置  
+
+#### 代理设置  
 
 1. curl代理设置  
 /.curlrc文件  
@@ -41,16 +48,16 @@ socks5 = "127.0.0.1:1080"
 2. git 代理设置  
 git config --global http.proxy http://127.0.0.1:1080  
 
-### 安装CocoaPods  
+#### 安装CocoaPods  
 
 ~/.cocoapods/repos/master  
 git clone https://github.com/CocoaPods/Specs.git master  
 
-### Xcode项目进入终端初始化pod  
+#### Xcode项目进入终端初始化pod  
 ~~~sh
 pod install --verbose --no-repo-update  
 ~~~
-### 配置Frameworks(FacebookSDK)  
+#### 配置Frameworks(FacebookSDK)  
 
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
 FBAEMKit  
@@ -60,9 +67,6 @@ FBSDKGamingServicesKit
 FBSDKLoginKit  
 FBSDKShareKit  
 
-## 打开Xcode项目打包  
-
-Unity-iPhone.xcworkspace  
 
 ## 远程珠海frps查看端口
 zhuhai-gs-win10  Administrator  

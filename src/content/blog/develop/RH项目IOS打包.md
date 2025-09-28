@@ -69,7 +69,12 @@ FBSDKShareKit
 
 
 ## 远程珠海frps查看端口
-zhuhai-gs-win10  Administrator  
-识别码:1963742429  bw***  
+zhuhai-gs-win10  
+Administrator  
+1963742429  bw***  
 
-zhuhai-gs-git-3389  Admin 1234
+zhuhai-gs-mac
+106850365  ht***
+
+zhuhai-gs-git-3389  
+Admin 1234

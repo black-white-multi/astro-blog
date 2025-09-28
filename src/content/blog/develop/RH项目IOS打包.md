@@ -78,3 +78,6 @@ zhuhai-gs-mac
 
 zhuhai-gs-git-3389  
 Admin 1234
+
+zhuhai-home-win
+sprite hpw***

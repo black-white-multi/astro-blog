@@ -50,13 +50,17 @@ git config --global http.proxy http://127.0.0.1:1080
 
 #### 安装CocoaPods  
 
+~~~sh
 ~/.cocoapods/repos/master  
 git clone https://github.com/CocoaPods/Specs.git master  
+~~~
 
 #### Xcode项目进入终端初始化pod  
+
 ~~~sh
 pod install --verbose --no-repo-update  
 ~~~
+
 #### 配置Frameworks(FacebookSDK)  
 
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
@@ -67,17 +71,25 @@ FBSDKGamingServicesKit
 FBSDKLoginKit  
 FBSDKShareKit  
 
+## 远程珠海frps查看端口  
 
-## 远程珠海frps查看端口
+---
 zhuhai-gs-win10  
 Administrator  
 1963742429  bw***  
 
-zhuhai-gs-mac
+---
+zhuhai-gs-mac  
 106850365  ht***
 
+---
 zhuhai-gs-git-3389  
 Admin 1234
 
-zhuhai-home-win
-sprite hpw***
+---
+zhuhai-home-win  
+sprite hpw***  
+
+---
+zhuhai-home-mac18  
+123636937   bw***

@@ -84,11 +84,13 @@ FBSDKShareKit
 
 ## 内网Win开发环境搭建
 1. 安装redis  
-配置redis.windows-service.conf  
+* 下载  
+  https://github.com/tporadowski/redis/releases  
+* 配置redis.windows-service.conf  
 bind 0.0.0.0
 
 2. 安装mongodb  
-配置mongod.cfg  
+  * 1. 配置mongod.cfg  
 
 ~~~sh
 # 内网配置所有IP
@@ -100,7 +102,7 @@ replication:
   replSetName: rs0
 ~~~
 
-进入命令行模式执行副本集初始化  
+  * 2.  进入命令行模式执行副本集初始化  
 ~~~sh
 rs.initiate({
   _id: "rs0",

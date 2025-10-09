@@ -73,3 +73,17 @@ MAX_FILE_SIZE = 50 ; MB
 ; 仓库级存储配额（企业版特性）
 REPO_QUOTA = 5 ; GB
 ~~~
+
+## 源码编译
+1. 安装go
+
+2. VSCode打开gogs
+
+3. go设置国内镜像,使用阿里云的代理  
+go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+
+4. 编译Gogs  
+go build -o gogs
+
+5. 运行  
+gogs web

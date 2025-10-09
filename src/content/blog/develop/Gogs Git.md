@@ -59,6 +59,10 @@ server {
 ## 配置lfs
 \custom\conf\app.ini
 ~~~sh
+; 开启外网端口必须设置为true，不开会被黑客攻击
+; 是否禁用自注册。禁用后，帐户必须由管理员创建。
+DISABLE_REGISTRATION        = true
+
 [lfs]
 ; 存储后端类型（当前仅支持local）
 STORAGE = local

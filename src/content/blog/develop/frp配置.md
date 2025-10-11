@@ -82,6 +82,8 @@ brew services restart frpc
 # 查看服务列表
 brew services list
 ~~~
+mac配置文件  
+/opt/homebrew/etc/frp
 
 ## NSSM 安装服务
 1. 下载nssm  

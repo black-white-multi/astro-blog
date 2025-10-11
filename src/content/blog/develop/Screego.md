@@ -31,6 +31,14 @@ SCREEGO_SERVER_TLS=true
 SCREEGO_TLS_CERT_FILE=C:\Program Files\screego_1.12.0\server.crt
 
 SCREEGO_TLS_KEY_FILE=C:\Program Files\screego_1.12.0\server.key
+
+# 严格模式 - 所有操作都需要登录
+SCREEGO_AUTH_MODE=all
+~~~
+
+~~~sh
+# 创建用户
+.\screego hash --name "korax" --pass "******"
 ~~~
 
 ## 3. NSSM 安装服务

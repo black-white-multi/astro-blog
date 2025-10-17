@@ -5,15 +5,18 @@ date: "2025-09-25"
 tags: ['工作流']
 ---
 
-## Ⅰ. Unity 配置
+## 1. Unity Init配置
 Init配置Release
 
-## Ⅱ. YooAsset打包  
+## 2. YooAsset打包  
 
-1. NGUI需要Reimport  
+* 1. HTRpg_Design更新  
+HTTools/配置/清除配置缓存并生成配置表数据  
+
+* 2. NGUI需要Reimport  
 目录Bundles/UI  
 
-2. 打包Bundle  
+* 3. 打包Bundle  
 YooAsset -> AssetBundle Builder  
 配置  
 Build Version   ->   v100  
@@ -21,7 +24,7 @@ Build Mode  ->  增量
 File Name Style -> BundleName_HashName  
 Copy Buildin File Option -> None  
 
-3. Bundle上传OSS  
+* 4. Bundle上传OSS  
 打开mac项目的StreamingAssets/Bundles终端窗口
 
 上传  
@@ -33,7 +36,7 @@ ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 ~~~
 
-## Ⅲ. 打开Xcode项目打包  
+## 3. 打开Xcode项目打包  
 
 Unity-iPhone.xcworkspace  
 
@@ -41,11 +44,11 @@ Unity-iPhone.xcworkspace
 
 #### 代理设置  
 
-1. curl代理设置  
+* 1. curl代理设置  
 /.curlrc文件  
 socks5 = "127.0.0.1:1080"  
 
-2. git 代理设置  
+* 2. git 代理设置  
 git config --global http.proxy http://127.0.0.1:1080  
 
 #### 安装CocoaPods  
@@ -84,9 +87,9 @@ FBSDKShareKit
 
 ## 内网Win开发环境搭建
 1. 安装redis  
-* 下载  
+  下载  
   https://github.com/tporadowski/redis/releases  
-* 配置redis.windows-service.conf  
+  配置redis.windows-service.conf  
 bind 0.0.0.0
 
 2. 安装mongodb  

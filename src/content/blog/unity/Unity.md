@@ -44,3 +44,10 @@ ffmpeg -i input.m4a output.ogg      # M4A → OGG
 - 在终端中输入 xattr -cr  
 - 程序图标拖入命令行  
 - 显示 xattr -cr /Applications/XXX.app  
+
+## v2rayN mac安装
+- 下载v2rayN-macos-arm64.zip  
+- 安装
+- 打开v2rayN / 检查更新
+- 更新库（未打开，Apple无法验证）
+- 系统偏好设置 - 隐私与安全性 - 安全性，点击「仍要打开」即可  

@@ -37,3 +37,10 @@ ffmpeg -i input.mp3 output.wav      # MP3 → WAV
 ffmpeg -i input.aac output.flac     # AAC → FLAC
 ffmpeg -i input.m4a output.ogg      # M4A → OGG
 ~~~
+
+## mac安装打开  
+提示已损坏，无法打开  
+解决办法  
+- 在终端中输入 xattr -cr  
+- 程序图标拖入命令行  
+- 显示 xattr -cr /Applications/XXX.app  

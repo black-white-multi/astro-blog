@@ -37,8 +37,9 @@ ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 ~~~
 
 ## 3. 打开Xcode项目打包  
-
-Unity-iPhone.xcworkspace  
+- UILoading 版本+1
+- Build 版本+1
+- Unity-iPhone.xcworkspace  
 
 ### FacebookSDK Mac环境配置  
 

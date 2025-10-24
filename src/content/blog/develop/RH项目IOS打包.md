@@ -1,7 +1,7 @@
 ---
 title: "RH项目IOS打包"
 description: ""
-date: "2025-09-25"
+date: "2025-10-25"
 tags: ['工作流']
 ---
 
@@ -65,7 +65,17 @@ git clone https://github.com/CocoaPods/Specs.git master
 pod install --verbose --no-repo-update  
 ~~~
 
-#### 配置Frameworks(FacebookSDK)  
+#### 修改Pods/Podfile文件
+#use_frameworks!  
+use_frameworks! :linkage => :static  
+这个操作后，需要 pod install  
+
+#### 手动添加Frameworks  
+MAS需要的参照 Yodo1PostProcessiOS.cs  
+DynamicLibraryPathsToEmbed方法列举的  
+![Frameworks](/imgs/rollinghero_ios.png)
+
+#### 手动添加Frameworks(FacebookSDK)  
 
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
 FBAEMKit  

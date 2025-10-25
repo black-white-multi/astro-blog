@@ -63,19 +63,15 @@ git clone https://github.com/CocoaPods/Specs.git master
 
 ~~~sh
 pod install --verbose --no-repo-update  
-~~~
+~~~ 
 
-#### 修改Pods/Podfile文件
-#use_frameworks!  
-use_frameworks! :linkage => :static  
-这个操作后，需要 pod install  
-
-#### 手动添加Frameworks  
+#### 手动添加UnityFramework  
 MAS需要的参照 Yodo1PostProcessiOS.cs  
 DynamicLibraryPathsToEmbed方法列举的  
 ![Frameworks](/imgs/rollinghero_ios.png)
 
-#### 手动添加Frameworks(FacebookSDK)  
+#### 手动添加UnityFramework  
+FacebookSDK    
 
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
 FBAEMKit  
@@ -84,6 +80,8 @@ FBSDKCoreKit_Basics
 FBSDKGamingServicesKit  
 FBSDKLoginKit  
 FBSDKShareKit  
+
+#### 将所有框架的嵌入方式从 "Embed & Sign" 改为 "Do Not Embed"
 
 ## 远程珠海frps查看端口  
 

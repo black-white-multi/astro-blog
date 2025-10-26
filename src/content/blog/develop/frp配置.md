@@ -6,10 +6,12 @@ tags: ['frp']
 ---
 
 ## Ubuntu安装frps  
+
 下载frp_0.64.0_linux_amd64.tar.gz  
 https://github.com/fatedier/frp  
 
 ## 配置frps.toml  
+
 ~~~sh
 bindPort = 8203  
  
@@ -29,6 +31,7 @@ allowPorts = [
 ~~~
 
 ## 设置开机自启动frps服务  
+
 ~~~sh
 #frps.service
 
@@ -48,7 +51,9 @@ ExecStart = /usr/local/bin/frps -c /etc/frp_0.64.0_linux_amd64/frps.toml
 [Install]
 WantedBy = multi-user.target
 ~~~
+
 命令  
+
 ~~~sh
 systemctl daemon-reload
 systemctl start frps.service
@@ -58,6 +63,7 @@ systemctl enable frps.service
 ~~~
 
 ## 配置frpc.toml  
+
 ~~~sh
 serverAddr = "blackwhite.fun"
 serverPort = 0000
@@ -70,8 +76,12 @@ localPort = 3389
 remotePort = 13389
 ~~~
 
-mac命令
+mac命令  
+
 ~~~sh
+#安装
+brew install frpc
+
 brew services start frpc
 
 brew services stop frpc
@@ -82,10 +92,16 @@ brew services restart frpc
 # 查看服务列表
 brew services list
 ~~~
-mac配置文件  
-/opt/homebrew/etc/frp
 
-## NSSM 安装服务
+mac配置文件  
+M1芯片  
+/opt/homebrew/etc/frp  
+
+Inter芯片  
+/usr/local/etc/frp  
+
+## NSSM 安装服务  
+
 1. 下载nssm  
 地址:https://nssm.cc/download  
 2. cmd: nssm install frpc  

@@ -5,18 +5,20 @@ date: "2025-10-25"
 tags: ['工作流']
 ---
 
-## 1. Unity Init配置
+## 1. Unity Init配置  
+
 Init配置Release
 
 ## 2. YooAsset打包  
 
-* 1. HTRpg_Design更新  
+* 1 HTRpg_Design更新  
 HTTools/配置/清除配置缓存并生成配置表数据  
 
-* 2. NGUI需要Reimport  
+* 2 NGUI需要Reimport  
+
 目录Bundles/UI  
 
-* 3. 打包Bundle  
+* 3 打包Bundle  
 YooAsset -> AssetBundle Builder  
 配置  
 Build Version   ->   v100  
@@ -24,32 +26,36 @@ Build Mode  ->  增量
 File Name Style -> BundleName_HashName  
 Copy Buildin File Option -> None  
 
-* 4. Bundle上传OSS  
+* 4 Bundle上传OSS  
 打开mac项目的StreamingAssets/Bundles终端窗口
 
-上传  
+上传
+
 ~~~sh
 ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u
 ~~~
+
 删除  
+
 ~~~sh
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 ~~~
 
 ## 3. 打开Xcode项目打包  
-- UILoading 版本+1
-- Build 版本+1
-- Unity-iPhone.xcworkspace  
+
+* UILoading 版本+1
+* Build 版本+1
+* Unity-iPhone.xcworkspace  
 
 ### FacebookSDK Mac环境配置  
 
 #### 代理设置  
 
-* 1. curl代理设置  
+* 1 curl代理设置  
 /.curlrc文件  
 socks5 = "127.0.0.1:1080"  
 
-* 2. git 代理设置  
+* 2 git 代理设置  
 git config --global http.proxy http://127.0.0.1:1080  
 
 #### 安装CocoaPods  
@@ -63,16 +69,17 @@ git clone https://github.com/CocoaPods/Specs.git master
 
 ~~~sh
 pod install --verbose --no-repo-update  
-~~~ 
+~~~
 
 #### 手动添加UnityFramework  
+
 MAS需要的参照 Yodo1PostProcessiOS.cs  
 DynamicLibraryPathsToEmbed方法列举的  
 ![Frameworks](/imgs/rollinghero_ios.png)
 
 #### 手动添加UnityFramework  
-FacebookSDK    
 
+FacebookSDK  
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
 FBAEMKit  
 FBSDKCoreKit  
@@ -94,7 +101,8 @@ FBSDKShareKit
 | zhuhai-home-win  | sprite hpw*** |
 | zhuhai-home-mac18  | 123636937   bw*** |
 
-## 内网Win开发环境搭建
+## 内网Win开发环境搭建  
+
 1. 安装redis  
   下载  
   https://github.com/tporadowski/redis/releases  
@@ -102,7 +110,8 @@ FBSDKShareKit
 bind 0.0.0.0
 
 2. 安装mongodb  
-  * 1. 配置mongod.cfg  
+
+* 1 配置mongod.cfg  
 
 ~~~sh
 # 内网配置所有IP
@@ -114,7 +123,8 @@ replication:
   replSetName: rs0
 ~~~
 
-  * 2.  进入命令行模式执行副本集初始化  
+* 2 进入命令行模式执行副本集初始化  
+  
 ~~~sh
 rs.initiate({
   _id: "rs0",

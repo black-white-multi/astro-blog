@@ -79,7 +79,7 @@ Unity -> iOS Reselver Settings
 pod install --verbose --no-repo-update  
 ~~~
 
-#### 手动添加UnityFramework  
+#### Pod自动添加添加UnityFramework  
 
 FacebookSDK  
 Unity-Phone → General → Frameworks, Libraries, and Embedded Content  
@@ -90,7 +90,9 @@ FBSDKGamingServicesKit
 FBSDKLoginKit  
 FBSDKShareKit  
 
-#### 将所有框架的嵌入方式从 "Embed & Sign" 改为 "Do Not Embed"
+#### 手动设置UnityFramework  
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
+Tips:升级Unity版本可能可以不需要手动设置  
 
 ## 远程珠海frps查看端口  
 

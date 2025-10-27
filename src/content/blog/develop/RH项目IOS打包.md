@@ -53,29 +53,31 @@ ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 
 * 1 curl代理设置  
 /.curlrc文件  
-socks5 = "127.0.0.1:1080"  
+socks5 = 127.0.0.1:1080  
 
 * 2 git 代理设置  
 git config --global http.proxy http://127.0.0.1:1080  
 
-#### 安装CocoaPods  
+#### Unity安装CocoaPods  
 
 ~~~sh
 ~/.cocoapods/repos/master  
 git clone https://github.com/CocoaPods/Specs.git master  
 ~~~
 
+安装成功pod路径  
+M1芯片  
+iOS Resolver  
+CocoaPods installation detected /opt/homebrew/bin/pod  
+
+Unity -> iOS Reselver Settings  
+勾选 use_frameworks! :linkage => :static  
+
 #### Xcode项目进入终端初始化pod  
 
 ~~~sh
 pod install --verbose --no-repo-update  
 ~~~
-
-#### 手动添加UnityFramework  
-
-MAS需要的参照 Yodo1PostProcessiOS.cs  
-DynamicLibraryPathsToEmbed方法列举的  
-![Frameworks](/imgs/rollinghero_ios.png)
 
 #### 手动添加UnityFramework  
 

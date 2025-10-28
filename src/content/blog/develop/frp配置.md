@@ -7,8 +7,7 @@ tags: ['frp']
 
 ## Ubuntu安装frps  
 
-下载frp_0.64.0_linux_amd64.tar.gz  
-https://github.com/fatedier/frp  
+下载frp_0.64.0_linux_amd64.tar.gz<https://github.com/fatedier/frp>
 
 ## 配置frps.toml  
 
@@ -102,8 +101,7 @@ Inter芯片
 
 ## NSSM 安装服务  
 
-1. 下载nssm  
-地址:https://nssm.cc/download  
+1. 下载nssm<https://nssm.cc/download>  
 2. cmd: nssm install frpc  
 3. 选择frpc.exe  
 4. 参数-c frpc.toml  

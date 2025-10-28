@@ -5,7 +5,8 @@ date: "2025-10-11"
 tags: ['工作流']
 ---
 
-## 1. 生成 HTTPS 证书
+## 1. 生成 HTTPS 证书  
+
 ~~~sh
 #生成密钥,过程中会要求设置密码：123456
 openssl genrsa -des3 -out server.key 2048
@@ -41,9 +42,9 @@ SCREEGO_AUTH_MODE=all
 .\screego hash --name "korax" --pass "******"
 ~~~
 
-## 3. NSSM 安装服务
-1. 下载nssm  
-地址:https://nssm.cc/download  
-2. cmd: nssm install ScreegoService   
+## 3. NSSM 安装服务  
+
+1. 下载nssm<https://nssm.cc/download>  
+2. cmd: nssm install ScreegoService  
 3. 选择C:\Program Files\screego_1.12.0\screego.exe  
 4. 参数serve  

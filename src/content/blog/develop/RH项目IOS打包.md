@@ -91,6 +91,7 @@ FBSDKLoginKit
 FBSDKShareKit  
 
 #### 手动设置UnityFramework  
+
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
 Tips:升级Unity版本可能可以不需要手动设置  
 
@@ -108,10 +109,9 @@ Tips:升级Unity版本可能可以不需要手动设置
 ## 内网Win开发环境搭建  
 
 1. 安装redis  
-  下载  
-  https://github.com/tporadowski/redis/releases  
+  下载redis<https://github.com/tporadowski/redis/releases>  
   配置redis.windows-service.conf  
-bind 0.0.0.0
+  bind 0.0.0.0
 
 2. 安装mongodb  
 

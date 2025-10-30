@@ -83,6 +83,17 @@ cmd文件的目录docker-compose.yml
 执行命令来启动服务  
 docker-compose up -d  
 
+## 创建管理员账号  
+
+```sh
+# 查看Taiga容器
+docker ps  
+# 进入taiga后端容器  
+docker exec -it taiga-back bash  
+# 在容器内部创建超级用户
+python manage.py createsuperuser
+```
+
 ## 管理员加普通账号  
 
 http://localhost:9000/admin/

@@ -53,10 +53,13 @@ ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 
 * 1 curl代理设置  
 /.curlrc文件  
-socks5 = 127.0.0.1:1080  
+socks5 = 127.0.0.1:10808  
 
 * 2 git 代理设置  
-git config --global http.proxy http://127.0.0.1:1080  
+
+~~~sh
+git config --global http.proxy http://127.0.0.1:10808  
+~~~
 
 #### Unity安装CocoaPods  
 

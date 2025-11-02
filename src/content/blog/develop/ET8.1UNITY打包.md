@@ -43,7 +43,21 @@ Copy Buildin File Option -> None
 Copy Buildin File Option -> Clear And Copy All  
 制作首包配置文件：Resources/BuildinFileManifest  
 YooAsset   -> BuildBuildinFileManifest  
-  
+
+~~~sh
+#配置ossutils
+
+#打开mac项目的StreamingAssets/Bundles终端窗口
+
+#上传
+ossutil cp DefaultPackage/ oss://blackwhite-cdn/tile_match/IOS/1.0.1 --exclude "*.meta" -r -u
+~~~
+
+~~~sh
+#删除  
+ossutil rm oss://blackwhite-cdn/tile_match/IOS/1.0.1 -r
+~~~
+
 ## 6. ET Build
 
  ET -> Build Tool -> BuildPackge
@@ -61,7 +75,6 @@ YooAsset   -> BuildBuildinFileManifest
    * 删除支付
    * UnityFramework 加入 StoreKit.framework
 
-
 ---  
 音效转换:  
 https://github.com/BtbN/FFmpeg-Builds  
@@ -70,5 +83,3 @@ https://github.com/BtbN/FFmpeg-Builds
 GlobalConfig(CodeMode = Client)  
 需要删除  
 \ET\Unity\Assets\Scripts\Model\Generate{CodeMode}\Igonre.asmdef  
-
----

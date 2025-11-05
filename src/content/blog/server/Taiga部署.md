@@ -7,7 +7,8 @@ tags: ['Taiga']
 
 ## 下载  
 
-下载[taiga-docker]<https://github.com/taigaio/taiga-docker/tree/main>  
+下载taiga-docker  
+<https://github.com/taigaio/taiga-docker/tree/main>  
 
 ## 配置.env  
 

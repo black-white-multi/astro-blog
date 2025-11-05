@@ -7,7 +7,7 @@ tags: ['工作流']
 
 Ubuntu 24.04.3 LTS
 
-## 安装ssh
+## 1. 安装ssh
 
 ~~~sh
 sudo apt update
@@ -18,7 +18,7 @@ sudo systemctl status ssh
 sudo systemctl restart ssh
 ~~~
 
-## 编辑 SSH 配置文件
+编辑 SSH 配置文件
 
 ~~~sh
 sudo nano /etc/ssh/sshd_config
@@ -36,7 +36,7 @@ PasswordAuthentication yes
 PubkeyAuthentication yes
 ~~~
 
-## 设置root密码
+## 2. 设置root密码
 
 1. 系统重启SHIFT进入GRUB
 2. Advanced options for Ubuntu
@@ -54,11 +54,10 @@ passwd root
 reboot
 ~~~
 
-## frpc.service
+## 3. frpc.service
 
 ~~~sh
-#frpc.service
-
+# /etc/systemd/system/frpc.service
 [Unit]
 # 服务名称，可自定义
 Description = frpc server
@@ -75,3 +74,118 @@ ExecStart = /usr/local/bin/frp_0.65.0/frpc -c /etc/frpc/frpc.toml
 [Install]
 WantedBy = multi-user.target
 ~~~
+
+配置/etc/frpc/frpc.toml
+
+## 4. 安装 V2Ray
+
+~~~sh
+# 使用官方脚本安装
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+# 配置 V2Ray
+sudo nano /usr/local/etc/v2ray/config.json
+
+{
+  "inbounds": [
+    {
+      "port": 10808,
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth"
+      }
+    },
+    {
+      "port": 10809,
+      "protocol": "http",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "ui.blackwhite.fun",
+            "port": 8888,                          
+            "users": [
+              {
+                "id": "替换id", 
+                "alterId": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/"
+        }
+      }
+    }
+  ]
+}
+~~~
+
+* 启动 V2Ray  
+sudo systemctl start v2ray
+
+* 设置开机自启  
+sudo systemctl enable v2ray
+
+* 检查运行状态  
+sudo systemctl status v2ray
+
+* sudo systemctl restart v2ray
+
+* sudo systemctl reload v2ray
+
+* /root/.bashrc配置http_proxy  
+export http_proxy=http://127.0.0.1:10809  
+export https_proxy=http://127.0.0.1:10809  
+export ALL_PROXY=socks5://127.0.0.1:10808  
+
+* curl https://ipinfo.io/ip
+
+* curl -v https://www.google.com
+
+* APT 包管理器配置http_proxy  
+路径/etc/apt/apt.conf.d  
+
+~~~sh
+sudo nano /etc/apt/apt.conf.d/95proxies  
+Acquire::socks::proxy "socks5://127.0.0.1:10808/";  
+~~~
+
+## 5. 安装 Docker
+
+* Docker安装文档  
+<https://docs.docker.com/desktop/setup/install/linux/ubuntu/>
+
+* 配置Docker使用代理  
+sudo mkdir -p /etc/systemd/system/docker.service.d  
+sudo tee /etc/systemd/system/docker.service.d/proxy.conf  
+
+~~~sh
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:10809"
+Environment="HTTPS_PROXY=http://127.0.0.1:10809"
+Environment="NO_PROXY=localhost,127.0.0.1,::1"
+~~~
+
+sudo systemctl daemon-reload  
+sudo systemctl restart docker  
+sudo docker run hello-world  
+
+## 6.安装Gitlab

@@ -139,3 +139,15 @@ rs.initiate({
     { _id: 0, host: "localhost:27017" }
   ]})
 ~~~
+
+## RH服务器更新release  
+
+master合并到test分支  
+
+服务器执行allPull.sh
+
+~~~sh
+sudo sh allPull.sh  
+~~~
+
+重新build，打包成docker镜像，创建容器

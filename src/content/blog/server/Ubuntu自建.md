@@ -61,16 +61,17 @@ reboot
 [Unit]
 # 服务名称，可自定义
 Description = frpc server
-After = network.target syslog.target
-Wants = network.target
-
+After = network-online.target syslog.target
+Wants = network-online.target
+Requires = network.target
 [Service]
 Type = simple
 User = root
-
+# 增加重启策略
+Restart = on-failure
+RestartSec = 5s
 # 启动frpc的命令，需修改为您的frpc的安装路径
 ExecStart = /usr/local/bin/frp_0.65.0/frpc -c /etc/frpc/frpc.toml
-
 [Install]
 WantedBy = multi-user.target
 ~~~

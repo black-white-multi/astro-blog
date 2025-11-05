@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu自建"
 description: ""
-date: "2025-10-30"
+date: "2025-11-5"
 tags: ['工作流']
 ---
 
@@ -77,6 +77,8 @@ WantedBy = multi-user.target
 ~~~
 
 配置/etc/frpc/frpc.toml
+
+systemctl restart frpc.service
 
 ## 4. 安装 V2Ray
 
@@ -190,3 +192,21 @@ sudo systemctl restart docker
 sudo docker run hello-world  
 
 ## 6.安装Gitlab
+
+迁移win10 gitlab 到 Ubuntu  
+将gitlab/config data lfs-objects logs拷贝到Ubuntu/srv/gitlab-app/gitlab
+
+* 启动  
+docker compose up -d
+
+* 停止  
+docker compose down
+
+* 查看 GitLab 容器日志  
+docker logs -f gitlab
+
+* 进入容器检查状态  
+docker exec -it gitlab /bin/bash
+
+* 检查 GitLab 就绪状态  
+gitlab-rake gitlab:check

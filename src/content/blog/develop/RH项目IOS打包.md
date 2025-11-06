@@ -26,10 +26,8 @@ HTTools/配置/清除配置缓存并生成配置表数据
 * 3 打包Bundle  
 YooAsset -> AssetBundle Builder  
 配置  
-Clear Build Cache -> 不勾
-Use Asset Depend DB -> 打勾
-Build Version   ->   v100  
-Build Mode  ->  增量  
+Clear Build Cache -> 不勾  
+Use Asset Depend DB -> 打勾  
 File Name Style -> BundleName_HashName  
 Copy Buildin File Option -> ClearAndCopyAll  
 

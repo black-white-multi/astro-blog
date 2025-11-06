@@ -1,15 +1,20 @@
 ---
 title: "RH项目IOS打包"
 description: ""
-date: "2025-10-25"
+date: "2025-11-6"
 tags: ['工作流']
 ---
 
 ## 1. Unity Init配置  
 
 Init配置Release
+  
+## 2. 版本+1设置
 
-## 2. YooAsset打包  
+* UILoading 版本+1
+* Project Settings -> Build 版本+1  
+
+## 3. YooAsset打包  
 
 * 1 HTRpg_Design更新  
 HTTools/配置/清除配置缓存并生成配置表数据  
@@ -21,15 +26,16 @@ HTTools/配置/清除配置缓存并生成配置表数据
 * 3 打包Bundle  
 YooAsset -> AssetBundle Builder  
 配置  
+Clear Build Cache -> 不勾
+Use Asset Depend DB -> 打勾
 Build Version   ->   v100  
 Build Mode  ->  增量  
 File Name Style -> BundleName_HashName  
-Copy Buildin File Option -> None  
+Copy Buildin File Option -> ClearAndCopyAll  
 
 * 4 Bundle上传OSS  
-打开mac项目的StreamingAssets/Bundles终端窗口
-
-上传
+打开mac项目的StreamingAssets/Bundles终端窗口  
+上传  
 
 ~~~sh
 ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u
@@ -41,11 +47,10 @@ ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "
 ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
 ~~~
 
-## 3. 打开Xcode项目打包  
+## 4. Unity打包Xcode
 
-* UILoading 版本+1
-* Build 版本+1
-* Unity-iPhone.xcworkspace  
+打开Xcode项目  
+Unity-iPhone.xcworkspace
 
 ### FacebookSDK Mac环境配置  
 

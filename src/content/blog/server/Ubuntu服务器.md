@@ -96,3 +96,5 @@ WantedBy = multi-user.target
         }
     }
 ```
+
+## Screego部署

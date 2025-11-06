@@ -5,45 +5,85 @@ date: "2025-10-11"
 tags: ['工作流']
 ---
 
-## 1. 配置screego.config
+## 外网Ubuntu搭建screego
 
-~~~sh
-SCREEGO_EXTERNAL_IP=127.0.0.1
+* 下载安装文档
 
-SCREEGO_SECRET=********
+    <https://screego.net/#/install>
 
-SCREEGO_SERVER_TLS=true
-# cert证书中的one.pem
-SCREEGO_TLS_CERT_FILE=C:\certs\pm.korax.fun.pem
-# cert证书中的one.pem
-SCREEGO_TLS_KEY_FILE=C:\certs\pm.korax.fun.pem
+* 安装文件位置
+  
+    /usr/local/bin/screego  
+    /usr/local/bin/screego.config  
+    /usr/local/bin/users.txt  
 
-# 严格模式 - 所有操作都需要登录
-SCREEGO_AUTH_MODE=all
+* screego.config配置
 
-SCREEGO_USERS_FILE=C:\Program Files\screego_1.12.0\users.txt
-~~~
+    ~~~sh
+    SCREEGO_EXTERNAL_IP=30.233.303.30
+    SCREEGO_SECRET=*****************
+    SCREEGO_SERVER_TLS=false
+    SCREEGO_TLS_CERT_FILE=
+    SCREEGO_TLS_KEY_FILE=
+    SCREEGO_SERVER_ADDRESS=0.0.0.0:5050
+    SCREEGO_TURN_ADDRESS=0.0.0.0:3478
+    SCREEGO_TURN_PORT_RANGE=50000:50010
+    SCREEGO_TURN_DENY_PEERS=0.0.0.0/8,127.0.0.1/8,::/128,::1/128,fe80::/10
+    SCREEGO_TRUST_PROXY_HEADERS=false
+    SCREEGO_AUTH_MODE=all
+    SCREEGO_CORS_ALLOWED_ORIGINS=
+    SCREEGO_USERS_FILE=/usr/local/bin/users.txt
+    SCREEGO_SESSION_TIMEOUT_SECONDS=0
+    SCREEGO_CLOSE_ROOM_WHEN_OWNER_LEAVES=true
+    SCREEGO_LOG_LEVEL=info
+    SCREEGO_PROMETHEUS=false
+    ~~~
 
-## 2. 创建用户
+* screego.service配置
+
+    ~~~sh
+    #screego.service
+    [Unit]
+    # 服务名称，可自定义
+    Description = screego server
+    After = network.target syslog.target
+    Wants = network.target
+    [Service]
+    Type = simple
+    User = root
+    # 启动screego命令
+    ExecStart = /usr/local/bin/screego serve
+    Restart=always
+    RestartSec=5
+    [Install]
+    WantedBy = multi-user.target
+    ~~~
+
+## linux命令
 
 ~~~sh
 # 创建用户
 .\screego hash --name "korax" --pass "******"
+
+# 重新加载systemd配置
+sudo systemctl daemon-reload
+
+# 开机启动
+sudo systemctl enable screego
+
+# 重启服务
+sudo systemctl start screego
+
+# 查看状态
+sudo systemctl status screego
+
+# 重启服务
+sudo systemctl restart screego
+
 ~~~
 
-## 3. NSSM 安装服务  
-
-1. 下载nssm<https://nssm.cc/download>  
-2. cmd: nssm install ScreegoService  
-3. 选择C:\Program Files\screego_1.12.0\screego.exe  
-4. 参数serve  
-
-## 4. 配置frpc
+## 内网Docker搭建screego
 
 ~~~sh
-[[proxies]]
-name = "zhuhai-gs-screego-web"
-type = "https"
-localPort = 5050
-customDomains = ["pm.korax.fun"]
+
 ~~~

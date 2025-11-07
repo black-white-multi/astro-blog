@@ -101,6 +101,12 @@ FBSDKShareKit
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
 Tips:升级Unity版本可能可以不需要手动设置  
 
+## 5. 包上传的TestFlight
+
+Xcode -> Product -> Archive  
+先验证Validate App  
+上传Distribute App  
+
 ## 远程珠海frps查看端口  
 
 | Name        | Description |

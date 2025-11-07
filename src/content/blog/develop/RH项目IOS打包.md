@@ -33,7 +33,9 @@ tags: ['工作流']
 
 - 4 Bundle上传OSS
 
-  打开mac项目的StreamingAssets/Bundles终端窗口  
+  打开Unity中的StreamingAssets/Bundles  
+  选中Bundles打开终端窗口  
+
   上传  
 
   ~~~sh
@@ -104,7 +106,7 @@ tags: ['工作流']
   ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
   Tips:升级Unity版本可能可以不需要手动设置  
 
-## 6. 包上传的TestFlight
+## 6. 包上传到TestFlight
 
   Xcode -> Product -> Archive  
   先验证Validate App  

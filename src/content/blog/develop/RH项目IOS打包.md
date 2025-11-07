@@ -51,9 +51,9 @@ tags: ['工作流']
  打开Xcode项目  
  Unity-iPhone.xcworkspace
 
-### FacebookSDK Mac环境配置  
+## 5. FacebookSDK Mac环境配置  
 
-> #### 代理设置  
+> ### 1. 代理设置
 
   1. curl代理设置  
     /.curlrc文件  
@@ -65,7 +65,7 @@ tags: ['工作流']
       git config --global http.proxy http://127.0.0.1:10808  
       ~~~
 
-> #### Unity安装CocoaPods  
+> ### 2. Unity安装CocoaPods  
 
   ~~~sh
   ~/.cocoapods/repos/master  
@@ -80,13 +80,13 @@ tags: ['工作流']
   Unity -> iOS Reselver Settings  
   勾选 use_frameworks! :linkage => :static  
 
-> #### Xcode项目进入终端初始化pod  
+> ### 3. Xcode项目进入终端初始化pod  
 
   ~~~sh
   pod install --verbose --no-repo-update  
   ~~~
 
-> #### Pod自动添加添加UnityFramework  
+> ### 4. Pod自动添加添加UnityFramework  
 
   FacebookSDK  
 
@@ -99,12 +99,12 @@ tags: ['工作流']
   FBSDKLoginKit  
   FBSDKShareKit  
 
-> #### 手动设置UnityFramework  
+> ### 5. 手动设置UnityFramework  
 
   ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
   Tips:升级Unity版本可能可以不需要手动设置  
 
-## 5. 包上传的TestFlight
+## 6. 包上传的TestFlight
 
   Xcode -> Product -> Archive  
   先验证Validate App  

@@ -14,9 +14,9 @@ df -ha
 
 ## 2. MongoDB 8.0 安装
 
-**按照文档安装**
+**按照文档安装**  
 **在 Ubuntu 上安装 MongoDB Community Edition**  
-https://www.mongodb.com/zh-cn/docs/v8.0/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu
+<https://www.mongodb.com/zh-cn/docs/v8.0/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu>
 
 ## 3.  启动MongoDB
 

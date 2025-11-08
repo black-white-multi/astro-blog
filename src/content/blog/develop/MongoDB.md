@@ -2,7 +2,7 @@
 title: "MongoDB"
 description: ""
 date: "2025-09-18"
-tags: ['MongoDB']
+tags: ["MongoDB"]
 ---
 
 ## MongoDB命令
@@ -13,15 +13,15 @@ mongo --version
 
 ---
 
-## Studio 3T  
+## Studio 3T
 
-### 备份  
+### 备份
 
 Connection Manager SSH链接数据库  
 Export 选择 BSON - mongodump archive  
 保存文件
 
-### 恢复  
+### 恢复
 
 Import 选择 BSON - mongodump archive  
 选择文件
@@ -31,30 +31,30 @@ Import 选择 BSON - mongodump archive
 修改配置  
 /etc/mongod.conf
 
-~~~sh
+```sh
 net:
   port: 27017
   bindIp: 0.0.0.0  # 修改为 0.0.0.0 或指定服务器公网 IP
-~~~
+```
 
-无验证模式先创建root用户  
+无验证模式先创建root用户
 
-~~~sh
+```sh
 use admin
 db.createUser({
   user: "root",
-  pwd: "***", 
+  pwd: "***",
   roles: [{ role: "readWrite", db: "admin" } , { role: "root", db: "admin" } ]
 })
-~~~
+```
 
-开启身份连接验证  
+开启身份连接验证
 
-~~~sh
+```sh
 #mac 用xcode编辑
-security:  
+security:
   authorization: enabled
-~~~
+```
 
 重启MongoDB服务  
 ubuntu  
@@ -71,18 +71,18 @@ mongodb://admin:pwd123456@<公网IP>:27017/admin?authSource=admin
 
 ## mongosh创建数据库
 
-~~~sh
+```sh
 mongosh
 use admin
 db.auth("admin", "密码")
 use TD
 db.createCollection("TD")
 show dbs
-~~~
+```
 
 ## mongosh为用户添加权限
 
-~~~sh
+```sh
 // 使用管理员账号操作
 use admin
 db.auth("admin", "密码")
@@ -99,7 +99,7 @@ db.createUser({
 
 // 或者查看用户信息
 db.getUsers()
-~~~
+```
 
 1. 数据库用户角色：read、readWrite；
 2. 数据库管理角色：dbAdmin、dbOwner、userAdmin;
@@ -107,4 +107,4 @@ db.getUsers()
 4. 备份恢复角色：backup、restore；
 5. 所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase
 6. 超级用户角色：root
-7. 内部角色：__system
+7. 内部角色：\_\_system

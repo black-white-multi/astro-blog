@@ -2,15 +2,15 @@
 title: "Taiga部署"
 description: ""
 date: "2025-10-23"
-tags: ['Taiga']
+tags: ["Taiga"]
 ---
 
-## 下载  
+## 下载
 
 下载taiga-docker  
-<https://github.com/taigaio/taiga-docker/tree/main>  
+<https://github.com/taigaio/taiga-docker/tree/main>
 
-## 配置.env  
+## 配置.env
 
 ```text
 # Taiga's URLs - Variables to define where Taiga should be served
@@ -58,7 +58,7 @@ TAIGA_SUPERUSER_PASSWORD=K********8
 TAIGA_SUPERUSER_EMAIL=korax@163.com
 ```
 
-## 配置docker-compose.yml  
+## 配置docker-compose.yml
 
 ```text
 #修改
@@ -82,19 +82,19 @@ taiga-gateway:
 
 cmd文件的目录docker-compose.yml  
 执行命令来启动服务  
-docker-compose up -d  
+docker-compose up -d
 
-## 创建管理员账号  
+## 创建管理员账号
 
 ```sh
 # 查看Taiga容器
-docker ps  
-# 进入taiga后端容器  
-docker exec -it taiga-back bash  
+docker ps
+# 进入taiga后端容器
+docker exec -it taiga-back bash
 # 在容器内部创建超级用户
 python manage.py createsuperuser
 ```
 
-## 管理员加普通账号  
+## 管理员加普通账号
 
 http://localhost:9000/admin/

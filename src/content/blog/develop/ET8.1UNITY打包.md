@@ -2,13 +2,14 @@
 title: "ET8.1 UNITY打包"
 description: ""
 date: "2025-06-5"
-tags: ['工作流','ET']
+tags: ["工作流", "ET"]
 ---
+
 ## 1. FGUI发布
 
-FGUI发布到Unity  
+FGUI发布到Unity
 
-Tools  ->  CopyFGUIDesc
+Tools -> CopyFGUIDesc
 
 ## 2. 设置宏
 
@@ -21,46 +22,46 @@ F6编译code
 ## 3. HybridCLR
 
 HybridCLR -> Generate -> All  
-HybridCLR -> CopyAotDll  
+HybridCLR -> CopyAotDll
 
 ## 4. HybridCLR 编译
 
-1.HybridCLR -> CompileDll -> ActiveBuildTarget  
+1.HybridCLR -> CompileDll -> ActiveBuildTarget
 
-2.HybridCLR -> CopyCodeDll  
+2.HybridCLR -> CopyCodeDll
 
 ## 5. YooAsset 打包
 
 YooAsset -> AssetBundle Builder
 
 配置  
-Build Version   ->   v100  
-Build Mode  ->  增量  
+Build Version -> v100  
+Build Mode -> 增量  
 File Name Style -> Bundle Name  
-Copy Buildin File Option -> None  
+Copy Buildin File Option -> None
 
 首包  
 Copy Buildin File Option -> Clear And Copy All  
 制作首包配置文件：Resources/BuildinFileManifest  
-YooAsset   -> BuildBuildinFileManifest  
+YooAsset -> BuildBuildinFileManifest
 
-~~~sh
+```sh
 #配置ossutils
 
 #打开mac项目的StreamingAssets/Bundles终端窗口
 
 #上传
 ossutil cp DefaultPackage/ oss://blackwhite-cdn/tile_match/IOS/1.0.1 --exclude "*.meta" -r -u
-~~~
+```
 
-~~~sh
-#删除  
+```sh
+#删除
 ossutil rm oss://blackwhite-cdn/tile_match/IOS/1.0.1 -r
-~~~
+```
 
 ## 6. ET Build
 
- ET -> Build Tool -> BuildPackge
+ET -> Build Tool -> BuildPackge
 
 ## 7. Xcode 打包
 
@@ -68,18 +69,19 @@ ossutil rm oss://blackwhite-cdn/tile_match/IOS/1.0.1 -r
 2. 设置版本 Bundle version
 3. 添加 Sign in with Apple
 4. Info.plist
-   * App Uses Non-Exempt Encryption : NO
-   * Privacy - Camera Usage Description
-   * AuthenticationServices.framework
+   - App Uses Non-Exempt Encryption : NO
+   - Privacy - Camera Usage Description
+   - AuthenticationServices.framework
 5. 测试包
-   * 删除支付
-   * UnityFramework 加入 StoreKit.framework
+   - 删除支付
+   - UnityFramework 加入 StoreKit.framework
 
----  
+---
+
 音效转换:  
-https://github.com/BtbN/FFmpeg-Builds  
+https://github.com/BtbN/FFmpeg-Builds
 
 编译报错  
 GlobalConfig(CodeMode = Client)  
 需要删除  
-\ET\Unity\Assets\Scripts\Model\Generate{CodeMode}\Igonre.asmdef  
+\ET\Unity\Assets\Scripts\Model\Generate{CodeMode}\Igonre.asmdef

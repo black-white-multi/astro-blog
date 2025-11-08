@@ -2,23 +2,23 @@
 title: "Nginx"
 description: ""
 date: "2024-09-30"
-tags: ['Nginx']
+tags: ["Nginx"]
 draft: false
 ---
 
 ## Ubuntu安装Nginx
 
-sudo apt install -y nginx  
+sudo apt install -y nginx
 
-sudo systemctl start nginx  
+sudo systemctl start nginx
 
-sudo systemctl reload nginx  
+sudo systemctl reload nginx
 
-sudo systemctl status nginx  
+sudo systemctl status nginx
 
-sudo systemctl restart nginx  
+sudo systemctl restart nginx
 
-~~~sh
+```sh
 server {
     listen 8203;
     server_name localhost;
@@ -27,7 +27,7 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }
-~~~
+```
 
 ## Https配置
 
@@ -35,11 +35,11 @@ server {
 申请证书blog.blackwhite.fun  
 下载.pem文件与.key文件  
 上传至服务器/etc/nginx/cert/  
-修改配置文件/etc/nginx/sites-enabled/default  
+修改配置文件/etc/nginx/sites-enabled/default
 
-## 顶级域名配置  
+## 顶级域名配置
 
-~~~sh
+```sh
 server {
     listen 8082 default_server;
     listen [::]:8082 default_server;
@@ -47,7 +47,7 @@ server {
     listen 443 ssl default_server;
     listen [::]:443 ssl default_server;
 
-    ssl_certificate "/etc/nginx/cert/www.blackwhite.fun.pem";  
+    ssl_certificate "/etc/nginx/cert/www.blackwhite.fun.pem";
     ssl_certificate_key "/etc/nginx/cert/www.blackwhite.fun.key";
 
     root /var/www/html;
@@ -63,19 +63,19 @@ server {
         try_files $uri $uri/ =404;
     }
 }
-~~~
+```
 
-## 二级域名配置  
+## 二级域名配置
 
-~~~sh
+```sh
 server {
     listen 443 ssl;
 
-    ssl_certificate "/etc/nginx/cert/blog.blackwhite.fun.pem";  
+    ssl_certificate "/etc/nginx/cert/blog.blackwhite.fun.pem";
     ssl_certificate_key "/etc/nginx/cert/blog.blackwhite.fun.key";
 
     server_name blog.blackwhite.fun;
-    
+
     root /var/www/html/blog;
 
     location ~ / {
@@ -89,12 +89,12 @@ server {
     server_name blog.blackwhite.fun;
     return 301 https//$host$request_uri;
 }
-~~~
+```
 
-nginx -t  
+nginx -t
 
 ## 手动更新Astro
 
-* VSCode编译Astro项目/dist
-* 拷贝dist到服务器/var/www/html/dist
-* 手动执行sudo systemctl reload nginx  
+- VSCode编译Astro项目/dist
+- 拷贝dist到服务器/var/www/html/dist
+- 手动执行sudo systemctl reload nginx

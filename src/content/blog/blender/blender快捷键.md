@@ -2,14 +2,15 @@
 title: "Blender快捷键"
 description: ""
 date: "2024-10-30"
-tags: ['Blender']
+tags: ["Blender"]
 ---
+
 ## 1. 快捷键
 
-- 选择循环  alt + 右键
+- 选择循环 alt + 右键
 - 点倒角 ctrl + shift + b
 - 边倒角 ctrl + b
-- 内插面 i  
+- 内插面 i
 - 镜像内插 i+i
 - 雕刻曲线 alt + E 编辑曲线 ctrl + 右键
 - 蒙皮修改器 ctrl + A 调整顶点缩放
@@ -18,10 +19,10 @@ tags: ['Blender']
 
 ## 3. 材质插件 Fluent Materializer
 
-- 基础色   hue overlay  solft light
-- 边缘 系数  hue 基础色
+- 基础色 hue overlay solft light
+- 边缘 系数 hue 基础色
 - 磨损 normal
-- 边缘+磨损  lighten  hue系数
+- 边缘+磨损 lighten hue系数
 - Local节点 局部变化 hue系数 基础色
 - Cavity腔体
 - Decal贴花
@@ -33,11 +34,11 @@ tags: ['Blender']
 ## 5.倒角文字
 
 - 文字转曲线 -> 3d 去面
-- 曲线转网格 ->  补面  -> 倒角 -> 合并顶点
+- 曲线转网格 -> 补面 -> 倒角 -> 合并顶点
 
-## 纹理绘制  
+## 纹理绘制
 
 创建贴图ID  
 开启绘制遮罩  
 选择颜色  
-绘制贴图  
+绘制贴图

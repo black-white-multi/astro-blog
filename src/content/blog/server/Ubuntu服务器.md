@@ -2,7 +2,7 @@
 title: "Ubuntu服务器"
 description: ""
 date: "2025-10-30"
-tags: ['工作流']
+tags: ["工作流"]
 ---
 
 Ubuntu 20.04 64位
@@ -14,10 +14,10 @@ Ubuntu 20.04 64位
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
-配置x-ui.service  
+配置x-ui.service
 
 ```sh
-#/etc/systemd/system/x-ui.service  
+#/etc/systemd/system/x-ui.service
 [Unit]
 Description=x-ui Service
 After=network.target
@@ -35,15 +35,15 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-## frps部署  
+## frps部署
 
 配置开放端口  
-/etc/frp_0.64.0_linux_amd64/frps.toml  
+/etc/frp_0.64.0_linux_amd64/frps.toml
 
-配置frps.service  
+配置frps.service
 
 ```sh
-#/etc/systemd/system/frps.service  
+#/etc/systemd/system/frps.service
 [Unit]
 # 服务名称，可自定义
 Description = frp server
@@ -85,7 +85,7 @@ WantedBy = multi-user.target
 
         ssl_certificate /etc/nginx/cert/gogs.crt;
         ssl_certificate_key /etc/nginx/cert/gogs.key;
-        
+
         client_max_body_size 1024M;
 
         location / {

@@ -2,7 +2,7 @@
 title: "Figma"
 description: ""
 date: "2025-06-19"
-tags: ['Figma']
+tags: ["Figma"]
 draft: false
 ---
 

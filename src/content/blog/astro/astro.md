@@ -2,7 +2,7 @@
 title: "Astro"
 description: ""
 date: "2024-09-30"
-tags: ['Astro']
+tags: ["Astro"]
 draft: false
 ---
 
@@ -13,21 +13,21 @@ https://nodejs.org/en/download/prebuilt-installer
 ## node自带npm
 
 升级npm  
-npm install npm -g  
-  
+npm install npm -g
+
 ## 安装astro
 
 npm install astro  
 IDE vscode  
 安装astro插件
-  
+
 ## 编译astro项目
 
 npm install  
 npm run dev  
 npm run build  
 注意：npm install 卡住不动, 切换至国内镜像源  
-npm config set registry https://registry.npmmirror.com  
+npm config set registry https://registry.npmmirror.com
 
 ## 升级Astro
 

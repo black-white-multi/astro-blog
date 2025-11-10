@@ -14,10 +14,10 @@ tags: ["Taiga"]
 
 ```text
 # Taiga's URLs - Variables to define where Taiga should be served
-TAIGA_SCHEME=http  # serve Taiga using "http" or "https" (secured) connection
-TAIGA_DOMAIN=pm.korax.fun:39000  # Taiga's base URL
+TAIGA_SCHEME=https  # serve Taiga using "http" or "https" (secured) connection
+TAIGA_DOMAIN=pm.korax.fun:8443  # Taiga's base URL
 SUBPATH="" # it'll be appended to the TAIGA_DOMAIN (use either "" or a "/subpath")
-WEBSOCKETS_SCHEME=ws  # events connection protocol (use either "ws" or "wss")
+WEBSOCKETS_SCHEME=wss  # events connection protocol (use either "ws" or "wss")
 
 # Taiga's Secret Key - Variable to provide cryptographic signing
 SECRET_KEY="Nk6wL=XiyHQKpxPTWfsDc-Av0Uh/rjSq2I83574nzgRltB9J+VZdu_oYbFOmaCE1"  # Please, change it to an unpredictable value!!
@@ -61,13 +61,16 @@ TAIGA_SUPERUSER_EMAIL=korax@163.com
 ## 配置docker-compose.yml
 
 ```text
-#修改
+# 修改
 taiga-gateway:
     image: nginx:1.19-alpine
     ports:
-      - "0.0.0.0:9000:80"
+      - "9000:80"
+      - "8443:443"
     volumes:
       - ./taiga-gateway/taiga.conf:/etc/nginx/conf.d/default.conf
+      # C:\taiga-docker\ssl\https证书
+      - ./ssl:/etc/nginx/ssl
       - taiga-static-data:/taiga/static
       - taiga-media-data:/taiga/media
     networks:
@@ -80,9 +83,10 @@ taiga-gateway:
 
 ## 启动docker
 
-cmd文件的目录docker-compose.yml  
-执行命令来启动服务  
-docker-compose up -d
+- cmd文件的目录docker-compose.yml
+- 执行命令来启动服务
+- docker-compose down
+- docker-compose up -d
 
 ## 创建管理员账号
 
@@ -97,4 +101,8 @@ python manage.py createsuperuser
 
 ## 管理员加普通账号
 
-http://localhost:9000/admin/
+```sh
+https://pm.korax.fun:8443/admin/
+admin
+K************
+```

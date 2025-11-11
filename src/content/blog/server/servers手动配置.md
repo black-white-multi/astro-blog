@@ -1,5 +1,5 @@
 ---
-title: "servers手动配置"
+title: "Servers手动配置"
 description: ""
 date: "2025-11-8"
 tags: ["工作流"]

@@ -81,10 +81,110 @@ taiga-gateway:
       - taiga-events
 ```
 
+## 配置taiga-gateway\taiga.conf
+
+```text
+# C:\taiga-docker\taiga-gateway\taiga.conf
+
+server {
+    listen 80 default_server;
+    server_name localhost;
+
+    # 重定向所有 HTTP 请求到 HTTPS
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2 default_server;
+
+	# SSL 证书配置 - 必须添加这些行！
+    ssl_certificate /etc/nginx/ssl/pm.korax.fun.crt;
+    ssl_certificate_key /etc/nginx/ssl/pm.korax.fun.key;
+
+    # SSL 安全配置
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+
+    client_max_body_size 100M;
+    charset utf-8;
+
+    # Frontend
+    location / {
+        proxy_pass http://taiga-front/;
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+    }
+
+    # API
+    location /api/ {
+        proxy_pass http://taiga-back:8000/api/;
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+    }
+
+    # Admin
+    location /admin/ {
+        proxy_pass http://taiga-back:8000/admin/;
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+    }
+
+    # Static
+    location /static/ {
+        alias /taiga/static/;
+    }
+
+    # Media
+    location /_protected/ {
+        internal;
+        alias /taiga/media/;
+        add_header Content-disposition "attachment";
+    }
+
+    # Unprotected section
+    location /media/exports/ {
+        alias /taiga/media/exports/;
+        add_header Content-disposition "attachment";
+    }
+
+    location /media/ {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://taiga-protected:8003/;
+        proxy_redirect off;
+    }
+
+    # Events
+    location /events {
+        proxy_pass http://taiga-events:8888/events;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_connect_timeout 7d;
+        proxy_send_timeout 7d;
+        proxy_read_timeout 7d;
+    }
+}
+
+```
+
 ## 启动docker
 
-- cmd文件的目录docker-compose.yml
-- 执行命令来启动服务
+- cmd到目录C:\taiga-docker\docker-compose.yml
+- 执行命令启动服务
 - docker-compose down
 - docker-compose up -d
 
@@ -105,4 +205,41 @@ python manage.py createsuperuser
 https://pm.korax.fun:8443/admin/
 admin
 K************
+```
+
+## n8n安装
+
+### docker安装
+
+```sh
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      # 需要修改
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=******
+      - NODE_ENV=production
+      - N8N_SECURE_COOKIE=false
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+n8n_data:
+```
+
+### node安装
+
+```sh
+# 全局安装
+npm install -g n8n
+# 启动
+n8n
 ```

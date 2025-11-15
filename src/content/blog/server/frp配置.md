@@ -105,3 +105,9 @@ Inter芯片
 2. cmd: nssm install frpc
 3. 选择frpc.exe
 4. 参数-c frpc.toml
+
+## 分析Windows日志
+
+1. eventvwr
+2. 在“Windows 日志”下点击“安全”
+3. 登录事件（事件ID 4625）

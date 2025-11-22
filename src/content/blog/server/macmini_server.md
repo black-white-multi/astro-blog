@@ -19,7 +19,7 @@ Ubuntu 24.04.3 LTS
 
 ## 2. 安装ssh
 
-同Korax Gitlab服务器
+同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#1-安装ssh)
 
 ## 3. 设置root密码
 
@@ -49,11 +49,11 @@ boot
 
 ## 4. frpc.service
 
-同Korax Gitlab服务器
+同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#3-frpcservice)
 
 ## 5. 安装 V2Ray
 
-同Korax Gitlab服务器
+同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#4-安装-v2ray)
 
 ## 6. 安装docker
 

@@ -14,8 +14,8 @@ tags: ["工作流"]
 - 安装文件位置
 
   /usr/local/bin/screego  
-   /usr/local/bin/screego.config  
-   /usr/local/bin/users.txt
+  /usr/local/bin/screego.config  
+  /usr/local/bin/users.txt
 
 - screego.config配置
 
@@ -79,11 +79,5 @@ sudo systemctl status screego
 
 # 重启服务
 sudo systemctl restart screego
-
-```
-
-## 内网Docker搭建screego
-
-```sh
 
 ```

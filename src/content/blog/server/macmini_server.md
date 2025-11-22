@@ -59,21 +59,37 @@ boot
 
 ## 7. Docker项目
 
-- 项目安装路径
-- Ubuntu/srv/cerdt-app/
+- Docker项目安装路径 /srv/
 
   ### Certd证书流水线
 
+  - [Certd帮助文档](https://certd.docmirror.cn/guide/)
   - <https://cerdt.blackwhite.fun/#/index>
   - 账号:sprite
   - 密码:########
+  - /srv/certd/
 
     ```sh
-    # 拉取镜像
-    docker pull registry.cn-shenzhen.aliyuncs.com/handsfree/certd:latest
-    # 升级certd
-    cd /Users/mac/docker-projects/certd
-    # 重新启动容器
-    docker compose down
-    docker compose up -d
+    # docker-compose.yml
+    version: '3.3'
+    services:
+    certd:
+      image: registry.cn-shenzhen.aliyuncs.com/handsfree/certd:latest
+      container_name: certd
+      restart: unless-stopped
+      volumes:
+        # Ubuntu目录路径
+        - /srv/certd:/app/data
+      ports:
+        - "7001:7001"
+        - "7002:7002"
+      environment:
+        - TZ=Asia/Shanghai
+        - certd_system_resetAdminPasswd=false
+        - certd_koa_hostname=0.0.0.0
+
     ```
+
+  - 重新启动容器
+  - docker compose down
+  - docker compose up -d

@@ -178,7 +178,7 @@ sudo nano /usr/local/etc/v2ray/config.json
 
 ```sh
 sudo nano /etc/apt/apt.conf.d/95proxies
-Acquire::socks::proxy "socks5://127.0.0.1:10808/";
+Acquire::http::proxy "http://127.0.0.1:10809";
 ```
 
 ## 5. 安装 Docker
@@ -199,6 +199,7 @@ Environment="NO_PROXY=localhost,127.0.0.1,::1"
 
 sudo systemctl daemon-reload  
 sudo systemctl restart docker  
+sudo systemctl enable docker  
 sudo docker run hello-world
 
 ## 6.安装Gitlab

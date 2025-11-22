@@ -60,7 +60,7 @@ boot
 ## 7. Docker项目
 
 - 项目安装路径
-- /Users/mac/docker-projects/
+- Ubuntu/srv/cerdt-app/
 
   ### Certd证书流水线
 

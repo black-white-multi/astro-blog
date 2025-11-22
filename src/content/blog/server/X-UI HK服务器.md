@@ -42,40 +42,40 @@ WantedBy=multi-user.target
 
 [frp安装](/blog/server/frp_install)
 
-## Nginx部署
+## nginx部署
 
 ```sh
-    #配置
-    server{
-        listen 80;
-        server_name gogs.korax.fun;
-        client_max_body_size 1024M;
-        proxy_read_timeout 600;
-        location / {
-            proxy_redirect off;
-            proxy_set_header Host $host;
-            proxy_set_header x-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_pass http://gogs.korax.fun:38080;
-        }
+#配置
+server{
+    listen 80;
+    server_name gogs.korax.fun;
+    client_max_body_size 1024M;
+    proxy_read_timeout 600;
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header x-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://gogs.korax.fun:38080;
     }
+}
 
-    server {
-        listen 443 ssl;
-        server_name gogs.korax.fun;  # 内网IP或主机名
+server {
+    listen 443 ssl;
+    server_name gogs.korax.fun;  # 内网IP或主机名
 
-        ssl_certificate /etc/nginx/cert/gogs.crt;
-        ssl_certificate_key /etc/nginx/cert/gogs.key;
+    ssl_certificate /etc/nginx/cert/gogs.crt;
+    ssl_certificate_key /etc/nginx/cert/gogs.key;
 
-        client_max_body_size 1024M;
+    client_max_body_size 1024M;
 
-        location / {
-            proxy_pass http://gogs.korax.fun:38443;  # 转发到HTTP 端口
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-Proto $scheme;
-        }
+    location / {
+        proxy_pass http://gogs.korax.fun:38443;  # 转发到HTTP 端口
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
+}
 ```
 
 ## Screego部署

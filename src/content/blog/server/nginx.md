@@ -1,12 +1,12 @@
 ---
-title: "Nginx"
+title: "nginx"
 description: ""
 date: "2024-09-30"
-tags: ["Nginx"]
+tags: ["nginx"]
 draft: false
 ---
 
-## Ubuntu安装Nginx
+## Ubuntu安装nginx
 
 sudo apt install -y nginx
 

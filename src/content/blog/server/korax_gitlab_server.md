@@ -11,38 +11,9 @@ Ubuntu自建
 
 Ubuntu 24.04.3 LTS
 
-## 1. 安装ssh
+## 1. ssh安装
 
-```sh
-sudo apt update
-sudo apt install openssh-server
-sudo systemctl start ssh
-sudo systemctl enable ssh
-sudo systemctl status ssh
-sudo systemctl restart ssh
-```
-
-编辑 SSH 配置文件
-
-```sh
-sudo nano /etc/ssh/sshd_config
-
-# 修改默认端口
-Port 22
-
-# root 用户登录
-PermitRootLogin yes
-
-# 关闭密码认证 防止黑客爆破
-PasswordAuthentication no
-PermitEmptyPasswords no
-
-# 允许公钥认证
-PubkeyAuthentication yes
-
-#只需要密钥认证，简化配置
-UsePAM no
-```
+点击查看 => [SSH安装](/blog/server/ssh_install)
 
 ## 2. 设置root密码
 

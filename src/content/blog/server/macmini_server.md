@@ -17,9 +17,9 @@ Ubuntu 24.04.3 LTS
 3. 重启Mac mini
 4. 插入Ubuntu安装U盘
 
-## 2. 安装ssh
+## 2. ssh安装
 
-同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#1-安装ssh)
+点击查看 => [SSH安装](/blog/server/ssh_install)
 
 ## 3. 设置root密码
 

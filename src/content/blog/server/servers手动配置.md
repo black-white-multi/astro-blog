@@ -52,3 +52,5 @@ tags: ["工作流"]
 - /etc/frpc/frpc.toml
 
 2. certd docker-compose 配置
+
+- /srv/certd/

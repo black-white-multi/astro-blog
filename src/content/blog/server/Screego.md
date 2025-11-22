@@ -5,11 +5,11 @@ date: "2025-10-11"
 tags: ["工作流"]
 ---
 
-## 外网Ubuntu搭建screego
+## Ubuntu搭建screego
 
-- 下载安装文档
+- frp外网无法分享屏幕 所以直接部署到外网
 
-  <https://screego.net/#/install>
+- [下载安装文档](https://screego.net/#/install)
 
 - 安装文件位置
 

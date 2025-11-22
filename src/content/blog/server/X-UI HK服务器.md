@@ -40,26 +40,7 @@ WantedBy=multi-user.target
 配置开放端口  
 /etc/frp_0.64.0_linux_amd64/frps.toml
 
-配置frps.service
-
-```sh
-#/etc/systemd/system/frps.service
-[Unit]
-# 服务名称，可自定义
-Description = frp server
-After = network.target syslog.target
-Wants = network.target
-
-[Service]
-Type = simple
-User = root
-
-# 启动frps的命令，需修改为您的frps的安装路径
-ExecStart = /usr/local/bin/frps -c /etc/frp_0.64.0_linux_amd64/frps.toml
-
-[Install]
-WantedBy = multi-user.target
-```
+[frp安装](/blog/server/frp_install)
 
 ## Nginx部署
 
@@ -98,3 +79,5 @@ WantedBy = multi-user.target
 ```
 
 ## Screego部署
+
+[Screego搭建](/blog/server/screego)

@@ -7,7 +7,7 @@ tags: ["frp"]
 
 ## Ubuntu安装frps
 
-下载frp_0.64.0_linux_amd64.tar.gz<https://github.com/fatedier/frp>
+[下载frp](https://github.com/fatedier/frp)
 
 ## 配置frps.toml
 

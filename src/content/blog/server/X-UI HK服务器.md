@@ -1,8 +1,8 @@
 ---
-title: "Ubuntu服务器"
+title: "X-UI HK服务器"
 description: ""
 date: "2025-10-30"
-tags: ["工作流"]
+tags: ["工作流", "Ubuntu"]
 ---
 
 Ubuntu 20.04 64位

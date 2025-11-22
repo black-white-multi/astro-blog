@@ -13,6 +13,7 @@ tags: ["frp"]
 
 ```sh
 bindPort = 8203
+auth.token = "openssl rand -base64 32"
 
 # dashboard 服务配置，"0.0.0.0" 为本机所有 ip
 webServer.addr = "0.0.0.0"
@@ -21,12 +22,6 @@ webServer.port = 8303
 # dashboard 配置的用户名和密码，修改成自己的
 webServer.user = "sprite"
 webServer.password = "pwd********"
-
-# 配置允许frpc绑定的端口
-allowPorts = [
-  { single = 3303 },
-  { single = 37018 },
-]
 ```
 
 ## 设置开机自启动frps服务
@@ -59,6 +54,14 @@ systemctl start frps.service
 systemctl restart frps.service
 systemctl status frps.service
 systemctl enable frps.service
+```
+
+```sh
+systemctl daemon-reload
+systemctl start frpc.service
+systemctl restart frpc.service
+systemctl status frpc.service
+systemctl enable frpc.service
 ```
 
 ## 配置frpc.toml

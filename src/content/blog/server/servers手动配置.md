@@ -45,16 +45,10 @@ tags: ["工作流"]
 - /etc/systemd/system/screego.service
 - /etc/systemd/system/x-ui.service
 
-## MacMini2014 - MacOS 12
+## MacMini2014 - Ubuntu24
 
 1. frp配置
 
-- /usr/local/etc/frp/frpc.toml
+- /etc/frpc/frpc.toml
 
 2. certd docker-compose 配置
-
-- /Users/mac/docker-projects/certd/docker-compose.yml
-
-3. 开机启动配置
-
-- /Library/LaunchDaemons

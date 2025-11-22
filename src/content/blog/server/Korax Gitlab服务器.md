@@ -1,9 +1,13 @@
 ---
-title: "Ubuntu自建"
+title: "Korax Gitlab服务器"
 description: ""
 date: "2025-11-5"
-tags: ["工作流"]
+tags: ["工作流", "Ubuntu"]
 ---
+
+Korax Gitlab服务器
+
+Ubuntu自建
 
 Ubuntu 24.04.3 LTS
 
@@ -29,16 +33,20 @@ Port 22
 # root 用户登录
 PermitRootLogin yes
 
-# 允许密码认证
-PasswordAuthentication yes
+# 关闭密码认证 防止黑客爆破
+PasswordAuthentication no
+PermitEmptyPasswords no
 
 # 允许公钥认证
 PubkeyAuthentication yes
+
+#只需要密钥认证，简化配置
+UsePAM no
 ```
 
 ## 2. 设置root密码
 
-1. 系统重启SHIFT进入GRUB
+1. 系统重启SHIFT键 进入GRUB
 2. Advanced options for Ubuntu
 3. 选择 "(recovery mode)"
 4. 选择 "root" - 进入 root shell
@@ -48,8 +56,10 @@ PubkeyAuthentication yes
 chown root:root /etc/sudo.conf /etc/sudoers
 chmod 440 /etc/sudoers
 chown -R root:root /etc/sudoers.d/
+
 #设置root密码
 passwd root
+
 #重启
 reboot
 ```

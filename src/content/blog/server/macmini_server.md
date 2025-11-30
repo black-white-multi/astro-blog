@@ -14,7 +14,7 @@ Ubuntu 24.04.3 LTS
 1. 下载rEFInd
 2. 安装rEFInd  
    sudo ./refind-install
-3. 重启Mac mini
+3. 重启Mac mini 同时按Alt键
 4. 插入Ubuntu安装U盘
 
 ## 2. ssh安装

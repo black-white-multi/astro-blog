@@ -135,6 +135,9 @@ sudo nano /usr/local/etc/v2ray/config.json
 
 - sudo systemctl reload v2ray
 
+- 执行权限
+  sudo chmod +x /usr/local/bin/v2ray
+
 - /root/.bashrc配置http_proxy  
   export http_proxy=http://127.0.0.1:10809  
   export https_proxy=http://127.0.0.1:10809  

@@ -17,6 +17,10 @@ tags: ["Linux"]
 
   # 更换国内镜像源
   vim /etc/pacman.d/mirrorlist
+  
+  # 顶部设置url
+  Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch
+
   # 保存退出
   :wq 
   ```

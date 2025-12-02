@@ -89,7 +89,7 @@ tags: ["Linux"]
 
   ```sh
   # 基础包
-  pacstrap /mnt base linux linux-firmware
+  pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
 
   # 必要的软件包
   pacstrap /mnt base-devel vim networkmanager

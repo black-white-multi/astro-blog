@@ -143,7 +143,8 @@ tags: ["Linux"]
   ```
 
 - 设置 root 密码
-  passwd
+  
+  passwd root 
 
 - 安装引导程序
 

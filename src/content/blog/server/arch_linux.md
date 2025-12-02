@@ -5,6 +5,22 @@ date: "2025-12-01"
 tags: ["Linux"]
 ---
 
+## 开始安装
+
+  ```sh
+  # 检查网络连接
+  ping www.baidu.com
+
+  # 校准系统时间
+  timedatectl set-ntp true
+  timedatectl status
+
+  # 更换国内镜像源
+  vim /etc/pacman.d/mirrorlist
+  # 保存退出
+  :wq 
+  ```
+
 ## linux分区
 
 - 列出硬盘分区

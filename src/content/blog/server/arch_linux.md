@@ -8,6 +8,15 @@ tags: ["Linux"]
 ## 开始安装
 
   ```sh
+  # 使用 iwd 连接 Wi-Fi
+  systemctl start iwd
+  iwctl
+  device list
+  station wlan0 scan
+  station wlan0 get-networks
+  station wlan0 connect "Wi-Fi名称"
+  # 输入密码
+
   # 检查网络连接
   ping www.baidu.com
 
@@ -90,9 +99,6 @@ tags: ["Linux"]
   ```sh
   # 基础包
   pacstrap /mnt base linux linux-firmware base-devel vim networkmanager
-
-  # 必要的软件包
-  pacstrap /mnt base-devel vim networkmanager
   ```
 
 - 生成 fstab 文件
@@ -129,20 +135,20 @@ tags: ["Linux"]
   locale-gen
 
   # 设置 LANG 变量
-  echo "LANG=en_US.UTF-8" > /etc/locale.conf
+  echo "en_US.UTF-8" > /etc/locale.conf
   ```
 
 - 网络配置
 
   ```sh
   # 设置主机名
-  echo "myarch" > /etc/hostname
+  echo "archmac" > /etc/hostname
 
   # 配置 /etc/hosts
   cat <<EOF >> /etc/hosts
   127.0.0.1   localhost
   ::1         localhost
-  127.0.1.1   myarch.localdomain myarch
+  127.0.1.1   archmac.localdomain archmac
   EOF
   ```
 
@@ -176,7 +182,33 @@ tags: ["Linux"]
 
 - 重启后，以 root 登录
 
+- 连接Wi-Fi
+  
+  ```sh
+  systemctl start NetworkManager
+
+  nmtui
+  nmcli device wifi list
+  nmcli device wifi connect "Wi-Fi名" password "密码"
+  ```
+
 - 创建普通用户
+
+  ```sh
+  # 创建用户
+  useradd -m -G wheel,audio,video,storage,power -s /bin/bash 用户名
+  
+  # 设置密码
+  passwd 用户名
+  
+  pacman -S sudo vim
+  EDITOR=vim visudo
+  
+  # 找到这行并取消注释（删除 #）
+  %wheel ALL=(ALL) ALL
+
+  :wq
+  ```
 
 - 配置 sudo
 
@@ -190,4 +222,17 @@ tags: ["Linux"]
   ```sh
   pacman -S networkmanager
   systemctl enable NetworkManager
+  ```
+
+- 安装图形界面 GNOME
+
+  ```sh
+  sudo pacman -S gnome
+
+  sudo pacman -S gdm
+
+  sudo systemctl enable gdm
+
+  # 重启进入 GNOME
+  sudo reboot
   ```

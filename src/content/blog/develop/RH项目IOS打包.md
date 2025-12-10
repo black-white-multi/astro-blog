@@ -106,6 +106,12 @@ FBAEMKit
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No  
  Tips:升级Unity版本可能可以不需要手动设置
 
+> ### 6. 手动设置MolocoSDK签名
+
+```sh
+sudo codesign --force --sign - /Users/huangyin/Desktop/rh_052_releses/Pods/MolocoSDKiOS/MolocoSDK.xcframework
+```
+
 ## 6. 包上传到TestFlight
 
 Xcode -> Product -> Archive  

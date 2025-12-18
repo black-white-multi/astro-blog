@@ -36,7 +36,13 @@ tags: ["工作流"]
   打开Unity中的StreamingAssets/Bundles  
   选中Bundles打开终端窗口
 
-  上传
+  上传测试地址
+
+  ```sh
+  ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS_TEST/1.0.0 --exclude "*.meta" -r -u
+  ```
+
+  上传正式地址
 
   ```sh
   ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u

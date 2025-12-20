@@ -68,5 +68,5 @@ UsePAM no
    ```sh
    sudo sshd -t
 
-   sudo systemctl reload ssh
+   sudo systemctl reload sshd
    ```

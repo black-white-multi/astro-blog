@@ -82,3 +82,9 @@ ET -> Build Tool -> BuildPackge
 5. 测试包
    - 删除支付
    - UnityFramework 加入 StoreKit.framework
+
+---
+
+## xcode 发布ios平台时出现 stdio.h 编译错误
+- zlib升级到最新版本，替换{project}/HybridCLRData/LocalIl2CppData-{platform}/il2cpp/external/zlib目录的代码
+- 清理Library缓存后重新打包

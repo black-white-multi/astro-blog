@@ -74,7 +74,8 @@ ET -> Build Tool -> BuildPackge
 
 1. Signing & Capabilities 设置证书包名
 2. 设置版本 Bundle version
-3. 添加 Sign in with Apple
+3. 手动设置UnityFramework
+   - ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES -> No
 4. Info.plist
    - App Uses Non-Exempt Encryption : NO
    - Privacy - Camera Usage Description
@@ -86,5 +87,6 @@ ET -> Build Tool -> BuildPackge
 ---
 
 ## xcode 发布ios平台时出现 stdio.h 编译错误
+
 - zlib升级到最新版本，替换{project}/HybridCLRData/LocalIl2CppData-{platform}/il2cpp/external/zlib目录的代码
 - 清理Library缓存后重新打包

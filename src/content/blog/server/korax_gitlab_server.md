@@ -195,3 +195,7 @@ sudo docker run hello-world
 
 - 检查 GitLab 就绪状态  
   gitlab-rake gitlab:check
+
+## 7.安装MongoDB
+
+[MongoDB安装文档](https://www.mongodb.com/zh-cn/docs/v8.0/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu)

@@ -5,6 +5,8 @@ date: "2025-12-25"
 tags: ["工作流", "MongoDB", "Redis"]
 ---
 
+Amazon Linux 2023
+
 ## 1. MongoDB
 
 配置/etc/yum.repos.d/mongodb-org-8.0.repo

@@ -36,13 +36,7 @@ tags: ["工作流"]
   打开Unity中的StreamingAssets/Bundles  
   选中Bundles打开终端窗口
 
-  上传测试地址
-
-  ```sh
-  ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS_TEST/1.0.0 --exclude "*.meta" -r -u
-  ```
-
-  上传正式地址
+  上传地址
 
   ```sh
   ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS/1.0.0 --exclude "*.meta" -r -u
@@ -52,6 +46,14 @@ tags: ["工作流"]
 
   ```sh
   ossutil rm oss://korax-oss-hk/AssetBundles/IOS/1.0.0 -r
+  ```
+
+  线上包上传测试地址
+  - 打开 COMMON_OPEN_TEST
+  - 关闭 COMMON_CLOSE_TEST
+
+  ```sh
+  ossutil cp DefaultPackage/ oss://korax-oss-hk/AssetBundles/IOS_TEST/1.0.0 --exclude "*.meta" -r -u
   ```
 
 ## 4. Unity打包Xcode

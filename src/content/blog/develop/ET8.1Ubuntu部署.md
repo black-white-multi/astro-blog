@@ -44,24 +44,37 @@ UbuntuOS
 
 ## 5. 安装Net8 运行时
 
-**在Ubuntu上安装.Net8**
+- 在Ubuntu上安装.Net8
 
-sudo apt-get install -y dotnet-sdk-8.0  
-sudo apt-get install -y aspnetcore-runtime-8.0  
-sudo apt-get install -y dotnet-runtime-8.0  
-使用 dotnet --list-sdks 和 dotnet --list-runtimes 命令查看安装的版本
+```sh
+sudo apt-get install -y dotnet-sdk-8.0
+
+sudo apt-get install -y aspnetcore-runtime-8.0
+
+sudo apt-get install -y dotnet-runtime-8.0
+
+#使用命令查看安装的版本
+dotnet --list-sdks
+dotnet --list-runtimes
+```
 
 ## 6. ET8 守护进程
 
-**路径 /etc/systemd/system/et_app.service**
+- 路径 /etc/systemd/system/et_app.service
 
+```sh
 systemctl stop et_app.service
 
 systemctl start et_app.service
 
 systemctl status et_app.service
 
+systemctl restart et_app.service
+
+systemctl enable et_app.service
+
 systemctl daemon-reload
+```
 
 ## 7. Ubuntu 解压zip
 

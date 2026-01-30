@@ -187,6 +187,9 @@ sudo docker run hello-world
 - 停止  
   docker compose down
 
+- 升级
+  docker compose pull
+
 - 查看 GitLab 容器日志  
   docker logs -f gitlab
 

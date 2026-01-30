@@ -181,22 +181,28 @@ sudo docker run hello-world
 迁移win10 gitlab 到 Ubuntu  
 将gitlab/config data lfs-objects logs拷贝到Ubuntu/srv/gitlab-app/gitlab
 
-- 启动  
+- 启动
+
   docker compose up -d
 
-- 停止  
+- 停止
+
   docker compose down
 
 - 升级
+
   docker compose pull
 
-- 查看 GitLab 容器日志  
+- 查看 GitLab 容器日志
+
   docker logs -f gitlab
 
-- 进入容器检查状态  
+- 进入容器检查状态
+
   docker exec -it gitlab /bin/bash
 
-- 检查 GitLab 就绪状态  
+- 检查 GitLab 就绪状态
+
   gitlab-rake gitlab:check
 
 ## 7.安装MongoDB

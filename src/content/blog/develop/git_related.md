@@ -5,6 +5,20 @@ date: "2025-11-8"
 tags: ["Git"]
 ---
 
+## 生成 SSH 密钥对
+
+打开 Git Bash
+
+```sh
+   # 检查密钥
+   ls -al ~/.ssh
+   # 生成密钥
+   ssh-keygen -t ed25519 -C "your.email@example.com"
+   # 复制公钥
+   cat ~/.ssh/id_ed25519.pub
+   # 在 GitLab 中添加公钥
+```
+
 ## Sourcetree 添加 SSH 密钥
 
 1. 打开 Sourcetree

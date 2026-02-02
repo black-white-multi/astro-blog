@@ -205,6 +205,19 @@ sudo docker run hello-world
 
   gitlab-rake gitlab:check
 
+- Docker GitLab 清理日志
+
+  ```sh
+  # 进入容器查看日志路径（确认容器内路径）
+  docker exec gitlab ls -lh /var/log/gitlab/
+
+  # 在容器内清理（如果日志在容器内部）
+  docker exec gitlab bash -c 'find /var/log/gitlab -name "*.log" -type f -exec truncate -s 0 {} \;'
+
+  # 清理 Docker 标准输出日志
+  sudo truncate -s 0 $(docker inspect --format='{{.LogPath}}' gitlab)
+  ```
+
 ## 7.安装MongoDB
 
 [MongoDB安装文档](https://www.mongodb.com/zh-cn/docs/v8.0/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu)

@@ -1,7 +1,7 @@
 ---
 title: "RH项目IOS打包"
 description: ""
-date: "2025-12-26"
+date: "2026-2-2"
 tags: ["工作流"]
 ---
 
@@ -12,7 +12,7 @@ tags: ["工作流"]
 ## 2. 版本+1设置
 
 - UILoading 版本+1
-- Project Settings -> Build 版本+1
+- Project Settings -> Player 版本+1
 
 ## 3. YooAsset打包
 
@@ -49,6 +49,7 @@ tags: ["工作流"]
   ```
 
   线上包上传测试地址
+
   - 打开 COMMON_OPEN_TEST
   - 关闭 COMMON_CLOSE_TEST
 
@@ -58,8 +59,8 @@ tags: ["工作流"]
 
 ## 4. Unity打包Xcode
 
-打开Xcode项目  
- Unity-iPhone.xcworkspace
+- 打开Xcode项目
+- Unity-iPhone.xcworkspace
 
 ## 5. FacebookSDK Mac环境配置
 

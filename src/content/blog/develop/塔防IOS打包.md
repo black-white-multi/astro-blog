@@ -1,7 +1,7 @@
 ---
 title: "塔防IOS打包"
 description: ""
-date: "2025-12-24"
+date: "2026-2-1"
 tags: ["工作流", "ET"]
 ---
 
@@ -11,42 +11,49 @@ FGUI发布到Unity
 
 Tools -> CopyFGUIDesc
 
-## 2. 设置宏
+## 2. 版本+1设置
 
-Tools -> 宏定义  
-UNITY
+- ResourcesComponent -> appVersion 版本+1
+- Project Settings -> Player Build 版本+1
+
+## 3. 设置宏
+
+- Tools -> 宏定义
+- UNITY
+- GRAPH_DESIGNER
+- FAIRYGUI_USE_ALPHA_TEXTURE
+- ENABLE_IL2CPP
+- AMPLIFY_SHADER_EDITOR
 
 F6编译code
 
-## 3. HybridCLR
+## 4. HybridCLR
 
-HybridCLR -> Generate -> All  
+HybridCLR -> Generate -> All
+
 HybridCLR -> CopyAotDll
-
-## 4. HybridCLR 编译
-
-1.HybridCLR -> CompileDll -> ActiveBuildTarget
-
-2.HybridCLR -> CopyCodeDll
 
 ## 5. YooAsset 打包
 
 YooAsset -> AssetBundle Builder
 
-配置  
+配置
+
 Clear Build Cache -> 不勾  
 Use Asset Depend DB -> 打勾  
 File Name Style -> BundleName_HashName  
 Copy Buildin File Option -> ClearAndCopyAll
 
-首包  
+首包
+
 Copy Buildin File Option -> Clear And Copy All  
 制作首包配置文件：Resources/BuildinFileManifest  
 YooAsset -> BuildBuildinFileManifest
 
 配置ossutils
 
-打开mac项目的StreamingAssets/Bundles终端窗口
+打开mac项目的StreamingAssets/Bundles终端窗口  
+选中Bundles打开终端窗口
 
 mac上传
 
@@ -66,9 +73,9 @@ ossutil cp D:\KoraxTD\Unity\Assets\StreamingAssets\Bundles\DefaultPackage oss://
 ossutil rm oss://korax-oss-hk/TowerDefense/IOS/v1.0.0 -r
 ```
 
-## 6. ET Build
+## 6. Unity打包Xcode
 
-ET -> Build Tool -> BuildPackge
+Project Settings -> Build
 
 ## 7. Xcode 打包
 

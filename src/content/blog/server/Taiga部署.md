@@ -11,7 +11,15 @@ tags: ["Taiga"]
 
 ## 配置.env
 
-```text
+```sh
+TAIGA_SCHEME=https  # serve Taiga using "http" or "https" (secured) connection
+
+TAIGA_DOMAIN=pm.korax.fun:8643  # Taiga's base URL
+
+SUBPATH="" # it'll be appended to the TAIGA_DOMAIN (use either "" or a "/subpath")
+
+WEBSOCKETS_SCHEME=wss
+
 SECRET_KEY="*********************"
 
 POSTGRES_PASSWORD=**************

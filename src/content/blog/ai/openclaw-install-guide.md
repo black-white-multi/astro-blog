@@ -237,6 +237,14 @@ openclaw gateway start
 
 # 查看状态
 openclaw gateway status
+
+# 重启
+openclaw gateway restart
+
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+
 ```
 
 ### 手动启动

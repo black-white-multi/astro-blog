@@ -314,46 +314,16 @@ openclaw security audit
 openclaw doctor
 ```
 
-## 8. 故障排除
+## 8. 配对
 
-### 常见问题
-
-#### 1. 网关无法启动
 ```bash
-# 检查端口占用
-sudo lsof -i :18789
+# 配对设备
+openclaw devices list
 
-# 查看详细日志
-openclaw logs --follow
+# 查看.openclaw/devices/pending.json
+openclaw devices approve 设备码
+
 ```
-
-#### 2. 插件加载失败
-```bash
-# 检查插件依赖
-cd ~/.openclaw/extensions/插件名
-npm install
-
-# 重新加载配置
-openclaw gateway restart
-```
-
-#### 3. 配对失败
-- 确保网关正在运行
-- 检查通道配置是否正确
-- 查看配对请求列表：`openclaw pairing list 通道名`
-
-#### 4. 模型API错误
-- 检查API密钥是否正确
-- 确认API配额是否充足
-- 查看模型提供商状态页面
-
-### 安全建议
-
-1. **定期更新**：保持OpenClaw最新版本
-2. **权限控制**：合理配置通道访问策略
-3. **API密钥保护**：不要泄露API密钥
-4. **日志监控**：定期检查系统日志
-5. **备份配置**：定期备份配置文件
 
 ## 9. 高级配置
 

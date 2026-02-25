@@ -325,6 +325,8 @@ openclaw doctor
 ## 8. 配对
 
 ```bash
+# 必须确保时间是同步的，否则无法配对设备
+
 # 配对设备
 openclaw devices list
 

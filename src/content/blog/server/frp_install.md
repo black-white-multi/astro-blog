@@ -1,7 +1,7 @@
 ---
 title: "frp配置"
 description: ""
-date: "2025-09-21"
+date: "2026-03-08"
 tags: ["frp"]
 ---
 
@@ -62,6 +62,22 @@ systemctl start frpc.service
 systemctl restart frpc.service
 systemctl status frpc.service
 systemctl enable frpc.service
+```
+
+## frps服务器安装fail2ban
+
+```sh
+# 安装
+sudo apt install fail2ban -y
+
+# 状态
+sudo systemctl status fail2ban
+
+# 重启
+sudo systemctl restart fail2ban
+
+# 检查 frps 监狱状态
+sudo fail2ban-client status frps
 ```
 
 ## 配置frpc.toml

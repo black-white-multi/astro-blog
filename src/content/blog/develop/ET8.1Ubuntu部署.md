@@ -34,13 +34,15 @@ sudo chown -R mongodb:mongodb /var/lib/mongodb/\*
 
 ## 4. MongoDB 备份、恢复数据
 
-CentOS  
-备份 mongodump  
-恢复 mongorestore
+UbuntuOS
 
-UbuntuOS  
-备份 sudo mongodump  
-恢复 sudo mongorestore --db RichMan --drop /root/dump/RichMan202404271515/
+```sh
+# 备份 
+sudo mongodump  
+# 恢复 
+
+sudo mongorestore --db RichMan --drop /root/dump/RichMan202404271515/
+```sh
 
 ## 5. 安装Net8 运行时
 
@@ -90,7 +92,7 @@ cd /
 cd ET
 
 wget <https://rich-shenzhen-ipa.oss-cn-shenzhen.aliyuncs.com/pc/Config.zip>  
- wget <https://rich-shenzhen-ipa.oss-cn-shenzhen.aliyuncs.com/pc/Bin.zip>
+wget <https://rich-shenzhen-ipa.oss-cn-shenzhen.aliyuncs.com/pc/Bin.zip>
 
 ## 9. 编译ET Server
 

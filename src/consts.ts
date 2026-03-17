@@ -1,7 +1,7 @@
 import type { Metadata, Site } from "@types";
 
 export const SITE: Site = {
-  TITLE: "BlackWhtie",
+  TITLE: "BlackWhite",
   DESCRIPTION: "黑白多工作室",
   EMAIL: "sprite2345@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 2,
@@ -9,7 +9,7 @@ export const SITE: Site = {
   SITEURL: 'https://blackwhitefun.netlify.app/' // Update here to link the RSS icon to your website rss
 };
 
-export const HIGHLIGHTAUTHOR = "BlackWhtie"
+export const HIGHLIGHTAUTHOR = "BlackWhite"
 
 export const HOME: Metadata = {
   TITLE: "主页",

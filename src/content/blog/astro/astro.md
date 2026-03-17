@@ -31,7 +31,7 @@ npm config set registry https://registry.npmmirror.com
 
 ## 升级Astro
 
-npm install astro@lastest
+npm install astro@latest
 
 ## 升级Tailwindcss
 

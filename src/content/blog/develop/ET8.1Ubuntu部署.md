@@ -42,7 +42,7 @@ sudo mongodump
 # 恢复 
 
 sudo mongorestore --db RichMan --drop /root/dump/RichMan202404271515/
-```sh
+```
 
 ## 5. 安装Net8 运行时
 

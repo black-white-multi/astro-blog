@@ -81,3 +81,19 @@ server {
 ## Screego部署
 
 [Screego搭建](/blog/server/screego)
+
+## 安装fail2ban
+
+```sh
+# 安装
+sudo apt install fail2ban -y
+
+# 状态
+sudo systemctl status fail2ban
+
+# 重启
+sudo systemctl restart fail2ban
+
+# 检查 sshd 监狱状态
+sudo fail2ban-client status sshd
+```

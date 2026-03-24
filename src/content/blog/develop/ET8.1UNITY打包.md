@@ -1,7 +1,7 @@
 ---
 title: "ET8.1 UNITY打包"
 description: ""
-date: "2025-06-5"
+date: "2026-01-01"
 tags: ["工作流", "ET"]
 ---
 
@@ -50,11 +50,15 @@ YooAsset -> BuildBuildinFileManifest
 
 #打开mac项目的StreamingAssets/Bundles终端窗口
 
-#上传
+#上传 tile_match ios
 ossutil cp DefaultPackage/ oss://blackwhite-cdn/tile_match/IOS/1.0.1 --exclude "*.meta" -r -u
-```
 
-```sh
+#上传 rich ios
+ossutil cp DefaultPackage/ oss://blackwhite-cdn/rich/IOS/0.6.8 --exclude "*.meta" -r -u
+
+#上传 rich steam
+ossutil cp D:\number_one_rich\Unity\Assets\StreamingAssets\Bundles\DefaultPackage oss://blackwhite-cdn/rich/STEAM/0.6.8 --exclude "*.meta" -r -u
+
 #删除
 ossutil rm oss://blackwhite-cdn/tile_match/IOS/1.0.1 -r
 ```

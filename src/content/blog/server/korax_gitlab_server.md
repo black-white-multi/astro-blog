@@ -52,7 +52,7 @@ User = root
 Restart = on-failure
 RestartSec = 5s
 # 启动frpc的命令，需修改为您的frpc的安装路径
-ExecStart = /usr/local/bin/frp_0.65.0/frpc -c /etc/frpc/frpc.toml
+ExecStart = /usr/local/bin/frpc -c /etc/frpc/frpc.toml
 [Install]
 WantedBy = multi-user.target
 ```
@@ -204,6 +204,19 @@ sudo docker run hello-world
 - 检查 GitLab 就绪状态
 
   gitlab-rake gitlab:check
+
+- Gitlab Root
+
+  ```sh
+  # 进入容器终端
+  sudo docker exec -it gitlab /bin/bash
+
+  # 查看密码
+  cat /etc/gitlab/initial_root_password
+
+  # 关闭注册
+
+  ```
 
 - Docker GitLab 清理日志
 

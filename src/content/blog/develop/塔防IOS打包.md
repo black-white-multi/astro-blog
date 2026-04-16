@@ -97,3 +97,13 @@ Project Settings -> Build
 
 - zlib升级到最新版本，替换{project}/HybridCLRData/LocalIl2CppData-{platform}/il2cpp/external/zlib目录的代码
 - 清理Library缓存后重新打包
+
+## 塔防服务器
+
+```sh
+# 路径
+cd /sprite/Desktop/koraxtd
+
+# 更新
+./Publish-linux-x64.sh
+```

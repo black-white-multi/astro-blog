@@ -46,6 +46,8 @@ openclaw gateway status
 
 ### 飞书（Feishu）机器人
 
+openclaw channels add
+
 使用你的 Feishu/Lark 移动应用扫描二维码
 
 ## 5. 启动网关服务

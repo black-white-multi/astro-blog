@@ -101,6 +101,11 @@ Project Settings -> Build
 ## 塔防服务器
 
 ```sh
+# 配置sudo权限
+/etc/sudoers.d
+
+sprite ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart et_app.service
+
 # 路径
 cd /sprite/Desktop/koraxtd
 

@@ -234,3 +234,21 @@ sudo docker run hello-world
 ## 7.安装MongoDB
 
 [MongoDB安装文档](https://www.mongodb.com/zh-cn/docs/v8.0/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu)
+
+## 8.安装redis-server
+  
+  /etc/redis/redis.conf配置密码
+  
+  requirepass pwd
+
+  ```sh
+  
+  sudo systemctl restart redis-server
+
+  sudo systemctl enable redis-server
+
+  redis-cli -a 'pwd' ping
+
+  redis-cli -a 'pwd' info server
+
+  ```

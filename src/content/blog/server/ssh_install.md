@@ -70,3 +70,32 @@ UsePAM no
 
    sudo systemctl reload sshd
    ```
+
+## 安装fastfetch
+
+1. 安装
+
+   ```sh
+   
+   # arch linux
+   sudo pacman -S fastfetch
+
+   # ubuntu
+   sudo apt install fastfetch
+
+   ```
+
+2. 全局配置fastfetch
+
+   ```sh
+
+   # 创建fastfetch.sh
+   sudo nano /etc/profile.d/fastfetch.sh
+
+   # 添加内容
+   
+   #!/bin/bash
+   /usr/bin/fastfetch
+   echo ""
+
+   ```

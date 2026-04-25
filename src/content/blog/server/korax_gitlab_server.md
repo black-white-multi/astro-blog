@@ -252,3 +252,4 @@ sudo docker run hello-world
   redis-cli -a 'pwd' info server
 
   ```
+  

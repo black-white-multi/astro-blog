@@ -73,9 +73,9 @@ passwd root
 boot
 ```
 
-## 5. frpc.service
+## 5. 安装frpc
 
-同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#3-frpcservice)
+[frp安装配置](/blog/server/frp_install)
 
 ## 6. 安装 V2Ray
 

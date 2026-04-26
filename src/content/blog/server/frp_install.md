@@ -1,13 +1,33 @@
 ---
-title: "frp配置"
+title: "frp安装配置"
 description: ""
 date: "2026-03-08"
 tags: ["frp"]
 ---
 
-## Ubuntu安装frps
+## Ubuntu安装frp、升级frp
 
 [下载frp](https://github.com/fatedier/frp)
+
+```sh
+# 目录
+cd /usr/local/bin
+
+# 下载
+wget https://github.com/fatedier/frp/releases/download/v0.68.0/frp_0.68.0_linux_amd64.tar.gz
+
+# 解压
+tar -xzvf frp_0.68.0_linux_amd64.tar.gz
+
+# 停止 frps
+sudo systemctl stop frps
+
+## 替换 frps
+sudo cp frp_0.68.0_linux_amd64/frps /usr/local/bin/frps
+
+## 启动 frps
+sudo systemctl start frps
+```
 
 ## 配置frps.toml
 
@@ -62,28 +82,6 @@ systemctl start frpc.service
 systemctl restart frpc.service
 systemctl status frpc.service
 systemctl enable frpc.service
-```
-
-## frps 升级
-
-```sh
-# 目录
-cd /usr/local/bin
-
-# 下载
-wget https://github.com/fatedier/frp/releases/download/v0.68.0/frp_0.68.0_linux_amd64.tar.gz
-
-# 解压
-tar -xzvf frp_0.68.0_linux_amd64.tar.gz
-
-# 停止 frps
-sudo systemctl stop frps
-
-## 替换 frps
-sudo cp frp_0.68.0_linux_amd64/frps /usr/local/bin/frps
-
-## 启动 frps
-sudo systemctl start frps
 ```
 
 ## 配置frpc.toml

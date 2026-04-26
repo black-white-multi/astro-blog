@@ -1,87 +1,94 @@
 ---
-title: "MacMini安装Ubuntu"
+title: "Macmini安装ubuntu"
 description: ""
 date: "2026-04-26"
 tags: ["工作流", "Ubuntu"]
 ---
 
-Ubuntu自建
+## Ubuntu 24.04.3 LTS
 
-Ubuntu 24.04.3 LTS
+## Ubuntu 26.04 LTS Server
 
 ## 1. macOS安装ubuntu 26 servers
 
-1. 下载rEFInd
-2. 安装rEFInd  
-   sudo ./refind-install
-3. 重启Mac mini 同时按Alt键
-4. 插入Ubuntu安装U盘
+  1. 下载rEFInd
+
+  2. 安装rEFInd  
+    sudo ./refind-install
+
+  3. 重启Mac mini 同时按Alt键
+
+  4. 插入Ubuntu安装U盘
 
 ## 2. 安装wifi驱动
 
-```sh
-# 插网线 或者 无线网卡
+- 命令行
+  
+  ```sh
+  # 插网线 或者 无线网卡
 
-# 设置国内镜像源
-sudo nano /etc/apt/sources.list.d/ubuntu.sources
-# URIs: http://mirrors.aliyun.com/ubuntu
+  # 设置国内镜像源
+  sudo nano /etc/apt/sources.list.d/ubuntu.sources
+  # URIs: http://mirrors.aliyun.com/ubuntu
 
-sudo apt update
+  sudo apt update
 
-# 
-sudo apt install network-manager
+  # 
+  sudo apt install network-manager
 
-# 安装wifi驱动
-sudo apt install broadcom-sta-dkms
+  # 安装wifi驱动
+  sudo apt install broadcom-sta-dkms
 
-# 
-nmcli device wifi list
+  # 
+  nmcli device wifi list
 
-# 连接wifi
-sudo nmcli dev wifi connect "HUAWEI-vSWn" password "888888" ifname wlp2s0
+  # 连接wifi
+  sudo nmcli dev wifi connect "HUAWEI-vSWn" password "888888" ifname wlp2s0
 
-ip address
-```
+  ip address
+  ```
 
 ## 3. ssh安装
 
-点击查看 => [SSH安装](/blog/server/ssh_install)
+- 点击查看 => [SSH安装](/blog/server/ssh_install)
 
 ## 4. 设置root密码
 
-系统重启Esc键 进入GRUB
+- 系统重启Esc键 进入GRUB
 
-macOS grub命令行
+- macOS grub命令行
 
-```sh
-# 查看内核文件列表
-ls (hd1,gpt2)/boot/
+  ```sh
+  # 查看内核文件列表
+  ls (hd1,gpt2)/boot/
 
-# 设置根分区
-set root=(hd1,gpt2)
+  # 设置根分区
+  set root=(hd1,gpt2)
 
-# 加载内核（进入救援模式） xxx内核版本号
-linux /boot/vmlinuz-xxx root=/dev/sda2 systemd.unit=rescue.target
+  # 加载内核（进入救援模式） xxx内核版本号
+  linux /boot/vmlinuz-xxx root=/dev/sda2 systemd.unit=rescue.target
 
-# 加载 initrd xxx内核版本号
-initrd /boot/initrd.img-xxx
+  # 加载 initrd xxx内核版本号
+  initrd /boot/initrd.img-xxx
 
-#设置root密码
-passwd root
+  #设置root密码
+  passwd root
 
-# 启动
-boot
-```
+  # 启动
+  boot
+  ```
 
 ## 5. 安装frpc
 
-点击查看 => [frp安装配置](/blog/server/frp_install)
+- 点击查看 => [frp安装配置](/blog/server/frp_install)
 
 ## 6. 安装 V2Ray
 
-点击查看 => [V2Ray安装配置](/blog/server/v2ray_install)
+- 点击查看 => [V2Ray安装配置](/blog/server/v2ray_install)
 
 ## 7. 安装docker
+
+- 点击查看 => [Docker安装文档](https://docs.docker.com/desktop/setup/install/linux/ubuntu/)
 
 ## 8. Docker项目
 

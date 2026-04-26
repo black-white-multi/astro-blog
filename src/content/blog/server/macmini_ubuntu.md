@@ -1,7 +1,7 @@
 ---
-title: "Macmini服务器"
+title: "MacMini安装Ubuntu"
 description: ""
-date: "2025-11-1"
+date: "2026-04-26"
 tags: ["工作流", "Ubuntu"]
 ---
 
@@ -9,7 +9,7 @@ Ubuntu自建
 
 Ubuntu 24.04.3 LTS
 
-## 1. macOS安装ubuntu
+## 1. macOS安装ubuntu 26 servers
 
 1. 下载rEFInd
 2. 安装rEFInd  
@@ -17,11 +17,37 @@ Ubuntu 24.04.3 LTS
 3. 重启Mac mini 同时按Alt键
 4. 插入Ubuntu安装U盘
 
-## 2. ssh安装
+## 2. 安装wifi驱动
+
+```sh
+# 插网线 或者 无线网卡
+
+# 设置国内镜像源
+sudo nano /etc/apt/sources.list.d/ubuntu.sources
+# URIs: http://mirrors.aliyun.com/ubuntu
+
+sudo apt update
+
+# 
+sudo apt install network-manager
+
+# 安装wifi驱动
+sudo apt install broadcom-sta-dkms
+
+# 
+nmcli device wifi list
+
+# 连接wifi
+sudo nmcli dev wifi connect "HUAWEI-vSWn" password "888888" ifname wlp2s0
+
+ip address
+```
+
+## 3. ssh安装
 
 点击查看 => [SSH安装](/blog/server/ssh_install)
 
-## 3. 设置root密码
+## 4. 设置root密码
 
 系统重启Esc键 进入GRUB
 
@@ -47,17 +73,17 @@ passwd root
 boot
 ```
 
-## 4. frpc.service
+## 5. frpc.service
 
 同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#3-frpcservice)
 
-## 5. 安装 V2Ray
+## 6. 安装 V2Ray
 
 同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#4-安装-v2ray)
 
-## 6. 安装docker
+## 7. 安装docker
 
-## 7. Docker项目
+## 8. Docker项目
 
 - Docker项目安装路径 /srv/
 

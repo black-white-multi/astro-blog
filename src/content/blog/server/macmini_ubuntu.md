@@ -75,11 +75,11 @@ boot
 
 ## 5. 安装frpc
 
-[frp安装配置](/blog/server/frp_install)
+点击查看 => [frp安装配置](/blog/server/frp_install)
 
 ## 6. 安装 V2Ray
 
-同[Korax Gitlab服务器](/blog/server/korax_gitlab_server#4-安装-v2ray)
+点击查看 => [V2Ray安装配置](/blog/server/v2ray_install)
 
 ## 7. 安装docker
 

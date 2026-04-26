@@ -5,13 +5,11 @@ date: "2025-09-21"
 tags: ["Git"]
 ---
 
-## Docker安装
+## 1. Docker安装
 
-1. 下载Docker
+- [下载Docker](https://www.docker.com/products/docker-desktop/)
 
-- 下载地址<https://www.docker.com/products/docker-desktop/>
-
-2. 使用 Docker Compose 部署 GitLab
+## 2. 使用 Docker Compose 部署 GitLab
 
 - 安装路径/srv/gitlab-app
 
@@ -76,21 +74,21 @@ tags: ["Git"]
       driver: bridge
   ```
 
-3. cmd文件的目录docker-compose.yml
+## 3. cmd文件的目录docker-compose.yml
 
 - 执行命令来启动服务
 - docker-compose up -d
 
-4. 首次启动会非常慢（可能需要 5-10 分钟）
+## 4. 首次启动会非常慢（可能需要 5-10 分钟）
 
 - Docker 需要下载镜像，并且 GitLab 在容器内进行初始化配置
 - docker-compose logs -f gitlab
 
-5. 查看root密码
+## 5. 查看root密码
 
 - docker exec gitlab cat /etc/gitlab/initial_root_password
 
-6. 修改gitlab.rb配置
+## 6. 修改gitlab.rb配置
 
 - /srv/gitlab-app/gitlab/config/gitlab.rb
 

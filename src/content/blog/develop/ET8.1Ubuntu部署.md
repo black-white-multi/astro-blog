@@ -1,7 +1,7 @@
 ---
 title: "ET8.1 Ubuntu部署"
 description: ""
-date: "2025-06-5"
+date: "2026-01-01"
 tags: ["工作流", "ET"]
 ---
 

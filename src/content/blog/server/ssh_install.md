@@ -71,6 +71,10 @@ UsePAM no
    sudo systemctl reload sshd
    ```
 
+## 设置root密码
+
+- passwd root
+
 ## 安装fastfetch
 
 1. 安装

@@ -1,7 +1,7 @@
 ---
-title: "Korax Gitlab服务器"
+title: "Korax Ubuntu 服务器"
 description: ""
-date: "2025-11-5"
+date: "2026-1-1"
 tags: ["工作流", "Ubuntu"]
 ---
 

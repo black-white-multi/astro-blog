@@ -103,3 +103,19 @@ UsePAM no
    echo ""
 
    ```
+
+## Warp配置ssh
+
+- 1. 连接ssh  
+  ssh x-ui-hk
+
+- 2. 配置~/.ssh/config
+
+   ```sh
+   Host x-ui-hk
+      HostName 47.243.201.001
+      User root
+      Port 22
+      PreferredAuthentications publickey
+      IdentityFile ~/.ssh/keys/id_ed25519
+   ```

@@ -80,13 +80,16 @@ UsePAM no
 1. 安装
 
    ```sh
-   
    # arch linux
    sudo pacman -S fastfetch
 
    # ubuntu
+   # 添加源
+   sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+   # 更新
+   sudo apt update
+   # 安装
    sudo apt install fastfetch
-
    ```
 
 2. 全局配置fastfetch

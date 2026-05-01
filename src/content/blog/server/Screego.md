@@ -11,6 +11,20 @@ tags: ["工作流"]
 
 - [下载安装文档](https://screego.net/#/install)
 
+  ```sh
+  # 目录
+  cd /usr/local/bin
+
+  # 下载
+  wget https://github.com/screego/server/releases/download/v1.12.3/screego_1.12.3_linux_amd64.tar.gz
+
+  #解压
+  tar xvf screego_1.12.3_linux_amd64.tar.gz
+
+  #
+  chmod +x screego
+  ```
+
 - 安装文件位置
 
   /usr/local/bin/screego  
@@ -79,5 +93,4 @@ sudo systemctl status screego
 
 # 重启服务
 sudo systemctl restart screego
-
 ```

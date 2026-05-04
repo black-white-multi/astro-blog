@@ -25,6 +25,20 @@ OpenClaw是一个功能强大的AI助手平台，支持多种聊天渠道（Tele
 
 ## 2. 初始化配置
 
+配置网关
+
+```bash
+"bind": "loopback",
+"controlUi": {
+    "allowInsecureAuth": true,
+    "allowedOrigins":
+    [
+    "http://127.0.0.1:18789",
+    "https://clawbot.blackwhite.fun"
+    ]
+},
+```
+
 ### 运行安装向导
 
 ```bash

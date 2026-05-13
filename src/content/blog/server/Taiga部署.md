@@ -31,6 +31,12 @@ POSTGRES_PASSWORD=**************
 - 执行命令启动服务
 - docker compose down
 - docker compose up -d
+- 升级Taiga
+- cd /srv/taiga-docker
+- docker pull taigaio/taiga-back:latest
+- docker pull taigaio/taiga-front:latest
+- docker pull taigaio/taiga-events:latest
+- docker pull taigaio/taiga-protected:latest
 
 ## frpc配置
 

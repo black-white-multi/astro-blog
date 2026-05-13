@@ -92,7 +92,7 @@ tags: ["工作流", "Ubuntu"]
 
 ## 8. Docker项目
 
-- Docker项目安装路径 /srv/
+- Docker项目安装路径 /srv/certd
 
   ### Certd证书流水线
 
@@ -123,6 +123,8 @@ tags: ["工作流", "Ubuntu"]
 
     ```
 
-  - 重新启动容器
+  - 升级Certd
+  - cd /srv/certd
+  - docker pull registry.cn-shenzhen.aliyuncs.com/handsfree/certd:latest
   - docker compose down
   - docker compose up -d

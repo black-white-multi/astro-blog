@@ -33,6 +33,7 @@ POSTGRES_PASSWORD=**************
 - docker compose up -d
 - 升级Taiga
 - cd /srv/taiga-docker
+- docker compose pull
 - docker pull taigaio/taiga-back:latest
 - docker pull taigaio/taiga-front:latest
 - docker pull taigaio/taiga-events:latest

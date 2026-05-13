@@ -125,6 +125,6 @@ tags: ["工作流", "Ubuntu"]
 
   - 升级Certd
   - cd /srv/certd
-  - docker pull registry.cn-shenzhen.aliyuncs.com/handsfree/certd:latest
+  - docker compose pull
   - docker compose down
   - docker compose up -d

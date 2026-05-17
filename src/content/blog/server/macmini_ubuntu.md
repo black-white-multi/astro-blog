@@ -90,6 +90,25 @@ tags: ["工作流", "Ubuntu"]
 
 - 点击查看 => [Docker安装文档](https://docs.docker.com/desktop/setup/install/linux/ubuntu/)
 
+- docker服务代理配置
+  
+  ```sh
+  sudo mkdir -p /etc/systemd/system/docker.service.d
+  
+  sudo tee /etc/systemd/system/docker.service.d/proxy.conf <<EOF
+  [Service]
+  Environment="HTTP_PROXY=http://127.0.0.1:10809"
+  Environment="HTTPS_PROXY=http://127.0.0.1:10809"
+  Environment="NO_PROXY=localhost,127.0.0.1,::1"
+  EOF
+
+  sudo systemctl daemon-reload
+  
+  sudo systemctl restart docker
+
+  sudo systemctl show --property=Environment docker
+  ```
+
 ## 8. Docker项目
 
 - Docker项目安装路径 /srv/certd

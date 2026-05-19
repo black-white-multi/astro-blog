@@ -72,9 +72,11 @@ Ubuntu 24.04.3 LTS
 
 - 迁移win10 gitlab 到 Ubuntu  
 
-- 将gitlab/config data lfs-objects logs拷贝到Ubuntu/srv/gitlab-app/gitlab
+- 将gitlab/config data lfs-objects logs拷贝到Ubuntu /srv/gitlab-app/gitlab
   
   ```sh
+  cd /srv/gitlab-app/gitlab
+
   # 启动
   docker compose up -d
 

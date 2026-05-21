@@ -60,7 +60,7 @@ tags: ["工作流"]
 ## 4. Unity打包Xcode
 
 - 打开Xcode项目
-- Unity-iPhone.xcworkspace
+- Unity-iPhone.xcworkspace(白色的)
 
 ## 5. FacebookSDK Mac环境配置
 

@@ -115,7 +115,28 @@ cd /sprite/Desktop/koraxtd
 
 ## Mongodb初始化设置
 
+MongoDB 8.3.4 与 Linux 内核 6.19+ 存在不兼容
+
+降级 MongoDB 到 8.0.4
+
 ```sh
+# 1. 停掉当前服务
+sudo systemctl stop mongod
+
+# 2. 卸载当前版本
+sudo apt remove mongodb-org mongodb-org-server mongodb-org-shell mongodb-org-mongos mongodb-org-tools mongodb-org-database mongodb-org-database-tools-extra mongodb-mongosh
+
+# 3. 安装 8.0.4 版本
+sudo apt install mongodb-org=8.0.4 mongodb-org-server=8.0.4 mongodb-org-shell=8.0.4 mongodb-org-mongos=8.0.4 mongodb-org-tools=8.0.4 mongodb-org-database=8.0.4 mongodb-org-database-tools-extra=8.0.4
+
+# 4. 锁定版本防止自动升级
+sudo apt-mark hold mongodb-org mongodb-org-server mongodb-org-shell mongodb-org-mongos mongodb-org-tools mongodb-org-database
+
+# 5. 启动
+sudo systemctl start mongod
+sudo systemctl status mongod
+
+
 # 取消代理
 unset http_proxy https_proxy ALL_PROXY
 

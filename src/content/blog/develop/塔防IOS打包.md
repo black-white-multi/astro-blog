@@ -112,3 +112,18 @@ cd /sprite/Desktop/koraxtd
 # 更新
 ./Publish-linux-x64.sh
 ```
+
+## Mongodb初始化设置
+
+```sh
+# 取消代理
+unset http_proxy https_proxy ALL_PROXY
+
+# 连接
+mongosh --tls=false
+
+# 添加用户权限
+use admin
+
+db.createUser({   user: "admin",   pwd: "**********", roles: [{ role: "root", db: "admin" }] })
+```

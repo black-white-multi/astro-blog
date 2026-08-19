@@ -33,7 +33,11 @@ HybridCLR -> Generate -> All
 
 HybridCLR -> CopyAotDll
 
-## 5. YooAsset 打包
+## 5. 配置Resources/GlobalConfig
+
+检查 E Play Mode -> Host Play Mode
+
+## 6. YooAsset 打包
 
 YooAsset -> AssetBundle Builder
 
@@ -73,11 +77,11 @@ ossutil cp D:\KoraxTD\Unity\Assets\StreamingAssets\Bundles\DefaultPackage oss://
 ossutil rm oss://korax-oss-hk/TowerDefense/IOS/v1.0.0 -r
 ```
 
-## 6. Unity打包Xcode
+## 7. Unity打包Xcode
 
 Project Settings -> Build
 
-## 7. Xcode 打包
+## 8. Xcode 打包
 
 1. Signing & Capabilities 设置证书包名
 2. 设置版本 Bundle version

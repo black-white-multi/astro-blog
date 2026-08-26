@@ -19,6 +19,15 @@ wget https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_
 # 解压
 tar -xzvf frp_0.71.0_linux_amd64.tar.gz
 
+# frpc零中断升级
+sudo rm /usr/local/bin/frpc
+
+## 替换 frpc
+sudo cp frp_0.71.0_linux_amd64/frpc /usr/local/bin/frpc
+
+## 重启 frpc
+sudo systemctl restart frpc
+
 # 停止 frps
 sudo systemctl stop frps
 

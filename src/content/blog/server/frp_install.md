@@ -14,16 +14,16 @@ tags: ["frp"]
 cd /usr/local/bin
 
 # 下载
-wget https://github.com/fatedier/frp/releases/download/v0.68.0/frp_0.68.0_linux_amd64.tar.gz
+wget https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_amd64.tar.gz
 
 # 解压
-tar -xzvf frp_0.68.0_linux_amd64.tar.gz
+tar -xzvf frp_0.71.0_linux_amd64.tar.gz
 
 # 停止 frps
 sudo systemctl stop frps
 
 ## 替换 frps
-sudo cp frp_0.68.0_linux_amd64/frps /usr/local/bin/frps
+sudo cp frp_0.71.0_linux_amd64/frps /usr/local/bin/frps
 
 ## 启动 frps
 sudo systemctl start frps

@@ -13,11 +13,17 @@ tags: ["Git"]
 
 - 安装路径/srv/gitlab-app
 
+  nano docker-compose.yml
+
+  [规划升级路径](https://docs.gitlab.com/update/upgrade_paths/)
+
+  [查看docker gitlab-ce版本](https://hub.docker.com/r/gitlab/gitlab-ce/tags)
+
   ```sh
   #docker-compose.yml
   services:
     gitlab:
-      image: gitlab/gitlab-ce:latest
+      image: gitlab/gitlab-ce:19.3.1-ce.0
       container_name: gitlab
       restart: always
       hostname: '127.0.0.1'
@@ -74,10 +80,20 @@ tags: ["Git"]
       driver: bridge
   ```
 
-## 3. cmd文件的目录docker-compose.yml
+## 3. cmd文件到目录docker-compose.yml
 
-- 执行命令来启动服务
-- docker-compose up -d
+```sh
+cd /srv/gitlab-app
+
+# 启动
+docker-compose up -d
+
+# 停止
+docker-compose down
+
+# 升级
+docker-compose pull
+```
 
 ## 4. 首次启动会非常慢（可能需要 5-10 分钟）
 

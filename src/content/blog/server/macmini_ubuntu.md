@@ -147,3 +147,10 @@ tags: ["工作流", "Ubuntu"]
   - docker compose pull
   - docker compose down
   - docker compose up -d
+
+  # 9. 安装fastfetch
+
+  sudo pacman -S fastfetch
+
+  echo 'fastfetch' | sudo tee /etc/profile.d/fastfetch.sh
+  

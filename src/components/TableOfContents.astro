@@ -3,7 +3,6 @@ import TableOfContentsHeading from "./TableOfContentsHeading.astro";
 
 // https://kld.dev/building-table-of-contents/
 const { headings } = Astro.props;
-const toc = buildToc(headings);
 
 export interface Heading {
   depth: number;
@@ -11,20 +10,54 @@ export interface Heading {
   text: string;
 }
 
-function buildToc(headings: Heading[]) {
-  const toc: Heading[] = [];
-  const parentHeadings = new Map();
-  headings.forEach((h) => {
-    const heading = { ...h, subheadings: [] };
-    parentHeadings.set(heading.depth, heading);
-    if (heading.depth == 2) {
-      toc.push(heading);
-    } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+export interface TocHeading extends Heading {
+  subheadings: TocHeading[];
+}
+
+/**
+ * Build a nested table of contents from the flat list of markdown headings.
+ *
+ * The previous implementation assumed every heading was either a depth-2 root
+ * or had a shallower heading immediately before it, so a stray `# heading` or a
+ * skipped level (e.g. `##` -> `####`) in a post made `parentHeadings.get(...)`
+ * return `undefined` and crashed the build with
+ * "Cannot read properties of undefined (reading 'subheadings')".
+ *
+ * We now keep a stack of open ancestors and attach each heading to the nearest
+ * one that is shallower, so any heading order is safe.
+ */
+function buildToc(headings: Heading[]): TocHeading[] {
+  const toc: TocHeading[] = [];
+  const ancestors: TocHeading[] = [];
+
+  for (const heading of headings) {
+    const node: TocHeading = { ...heading, subheadings: [] };
+
+    if (node.depth <= 2) {
+      toc.push(node);
+      ancestors.length = 0;
+      ancestors.push(node);
+      continue;
     }
-  });
+
+    while (ancestors.length > 0 && ancestors[ancestors.length - 1].depth >= node.depth) {
+      ancestors.pop();
+    }
+
+    const parent = ancestors[ancestors.length - 1];
+    if (parent) {
+      parent.subheadings.push(node);
+    } else {
+      // Orphan heading: the post jumps straight to ### (or deeper) with no parent.
+      toc.push(node);
+    }
+    ancestors.push(node);
+  }
+
   return toc;
 }
+
+const toc = buildToc(headings);
 ---
 
 <details

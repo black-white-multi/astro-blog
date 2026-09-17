@@ -148,7 +148,7 @@ tags: ["工作流", "Ubuntu"]
   - docker compose down
   - docker compose up -d
 
-  # 9. 安装fastfetch
+## 9. 安装fastfetch
 
   sudo pacman -S fastfetch
 

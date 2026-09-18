@@ -155,6 +155,92 @@ db.createUser({   user: "admin",   pwd: "**********", roles: [{ role: "root", db
 
 ## docker CI/CD
 
+1. 在宿主机安装 GitLab Runner
+
+```bash
+# 安装
+sudo pacman -S gitlab-runner
+# 验证
+gitlab-runner --version
+```
+
+2. 在 GitLab 创建 Runner 并获取 Token
+
+进入 GitLab 项目页面：
+
+Settings -> CI/CD -> Runners -> New project runner
+
+Tags：填 prod（和 job 里的 tags 对应）
+
+Run untagged jobs：不勾选（强制所有 job 必须带 tag）
+
+创建后会拿到一个 runner authentication token，格式为 glrt-xxxxxxxxxxxxxxxx
+
+3. 注册 Shell Executor
+
+```bash
+gitlab-runner register --url https://gogs.korax.fun --token glrt-xxxxxxxxxxx --executor shell
+```
+
+4. 验证 Runner 状态
+
+```bash
+sudo gitlab-runner list
+sudo gitlab-runner verify
+sudo cat /etc/gitlab-runner/config.toml
+```
+
+然后去 GitLab 页面看 Settings -> CI/CD -> Runners，prod-shell-runner 应该变成绿色在线
+
+5. docker 权限
+
+```bash
+sudo usermod -aG docker gitlab-runner
+sudo systemctl restart gitlab-runner
+sudo -u gitlab-runner -H docker info
+```
+
+6. 配 Deploy Key
+
+```bash
+getent passwd gitlab-runner
+cat /usr/lib/systemd/system/gitlab-runner.service
+sudo -u gitlab-runner -H mkdir -p /var/lib/gitlab-runner/.ssh
+sudo -u gitlab-runner -H chmod 700 /var/lib/gitlab-runner/.ssh
+sudo -u gitlab-runner -H ssh-keygen -t ed25519 -N "" -f /var/lib/gitlab-runner/.ssh/id_ed25519
+sudo cat /var/lib/gitlab-runner/.ssh/id_ed25519.pub
+# 拿到公钥后：加到 GitLab
+# Settings -> Repository -> Deploy keys -> Add key
+
+# 回到服务器，加 known_hosts
+sudo -u gitlab-runner -H ssh-keyscan gogs.korax.fun >> /var/lib/gitlab-runner/.ssh/known_hosts
+sudo -u gitlab-runner -H chmod 600 /var/lib/gitlab-runner/.ssh/known_hosts
+sudo chown gitlab-runner:gitlab-runner /var/lib/gitlab-runner/.ssh/known_hosts
+sudo chmod 600 /var/lib/gitlab-runner/.ssh/known_hosts
+sudo chown -R gitlab-runner:gitlab-runner /var/lib/gitlab-runner/.ssh
+sudo ls -la /var/lib/gitlab-runner/.ssh/
+
+# 测试 SSH 连接
+sudo -u gitlab-runner -H ssh -T -p 38022 git@gogs.korax.fun
+
+```
+
+7.  写 SSH config
+
+```bash
+sudo -u gitlab-runner -H tee /var/lib/gitlab-runner/.ssh/config > /dev/null <<'EOF'
+Host gogs.korax.fun
+  Port 38022
+  User git
+  IdentityFile /var/lib/gitlab-runner/.ssh/id_ed25519
+  IdentitiesOnly yes
+EOF
+sudo -u gitlab-runner -H chmod 600 /var/lib/gitlab-runner/.ssh/config
+ls -la /opt/koraxtd
+sudo chown gitlab-runner:gitlab-runner /opt
+sudo -u gitlab-runner -H git clone ssh://git@gogs.korax.fun:38022/korax/koraxtd.git /opt/koraxtd
+```
+
 1. 启动 GitLab Runner 容器
 
 ```bash

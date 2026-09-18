@@ -13,12 +13,6 @@ tags: ["Git"]
 
 - 安装路径/srv/gitlab-app
 
-  nano docker-compose.yml
-
-  [规划升级路径](https://docs.gitlab.com/update/upgrade_paths/)
-
-  [查看docker gitlab-ce版本](https://hub.docker.com/r/gitlab/gitlab-ce/tags)
-
   ```sh
   #docker-compose.yml
   services:
@@ -95,16 +89,25 @@ docker-compose down
 docker-compose pull
 ```
 
-## 4. 首次启动会非常慢（可能需要 5-10 分钟）
+## 4. 升级 GitLab
+
+nano docker-compose.yml
+
+[规划升级路径](https://docs.gitlab.com/update/upgrade_paths/)
+
+[查看docker gitlab-ce版本](https://hub.docker.com/r/gitlab/gitlab-ce/tags)
+
+
+## 5. 首次启动会非常慢（可能需要 5-10 分钟）
 
 - Docker 需要下载镜像，并且 GitLab 在容器内进行初始化配置
 - docker-compose logs -f gitlab
 
-## 5. 查看root密码
+## 6. 查看root密码
 
 - docker exec gitlab cat /etc/gitlab/initial_root_password
 
-## 6. 修改gitlab.rb配置
+## 7. 修改gitlab.rb配置
 
 - /srv/gitlab-app/gitlab/config/gitlab.rb
 

@@ -152,3 +152,40 @@ use admin
 
 db.createUser({   user: "admin",   pwd: "**********", roles: [{ role: "root", db: "admin" }] })
 ```
+
+## docker CI/CD
+
+1. 启动 GitLab Runner 容器
+
+```bash
+docker volume create gitlab-runner-config
+
+docker run -d --name gitlab-runner --restart always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v gitlab-runner-config:/etc/gitlab-runner \
+  gitlab/gitlab-runner:latest
+```
+
+2. 注册到 GitLab 群组 Runner
+
+```bash
+docker exec -it gitlab-runner gitlab-runner register \
+  --url https://gitlab.example.com/ \
+  --token glrt-xxxxxxxxxxxx \
+  --executor docker \
+  --docker-image alpine:latest \
+  --description "game-server-docker-runner" \
+  --tag-list "game-server,build,deploy,linux,docker" \
+  --run-untagged=true
+```
+
+3. 检查配置
+
+```bash
+docker exec -it gitlab-runner cat /etc/gitlab-runner/config.toml
+
+# 重启
+docker restart gitlab-runner
+```
+
+4. 配合“全部手动触发”的 .gitlab-ci.yml

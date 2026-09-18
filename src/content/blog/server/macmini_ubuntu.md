@@ -150,7 +150,8 @@ tags: ["工作流", "Ubuntu"]
 
 ## 9. 安装fastfetch
 
+```sh
   sudo pacman -S fastfetch
 
-  echo 'fastfetch' | sudo tee /etc/profile.d/fastfetch.sh
-  
+  echo fastfetch | sudo tee /etc/profile.d/fastfetch.sh
+```

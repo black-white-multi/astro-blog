@@ -157,24 +157,24 @@ db.createUser({   user: "admin",   pwd: "**********", roles: [{ role: "root", db
 
 1. 在宿主机安装 GitLab Runner
 
-```bash
-# 安装
-sudo pacman -S gitlab-runner
-# 验证
-gitlab-runner --version
-```
+  ```bash
+  # 安装
+  sudo pacman -S gitlab-runner
+  # 验证
+  gitlab-runner --version
+  ```
 
 2. 在 GitLab 创建 Runner 并获取 Token
 
-进入 GitLab 项目页面：
+  进入 GitLab 项目页面：
 
-Settings -> CI/CD -> Runners -> New project runner
+  Settings -> CI/CD -> Runners -> New project runner
 
-Tags：填 prod（和 job 里的 tags 对应）
+  Tags：填 prod（和 job 里的 tags 对应）
 
-Run untagged jobs：不勾选（强制所有 job 必须带 tag）
+  Run untagged jobs：不勾选（强制所有 job 必须带 tag）
 
-创建后会拿到一个 runner authentication token，格式为 glrt-xxxxxxxxxxxxxxxx
+  创建后会拿到一个 runner authentication token，格式为 glrt-xxxxxxxxxxxxxxxx
 
 3. 注册 Shell Executor
 
@@ -188,6 +188,41 @@ gitlab-runner register --url https://gogs.korax.fun --token glrt-xxxxxxxxxxx --e
 sudo gitlab-runner list
 sudo gitlab-runner verify
 sudo cat /etc/gitlab-runner/config.toml
+```
+
+```bash
+concurrent = 1
+check_interval = 0
+connection_max_age = "15m0s"
+shutdown_timeout = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "prod-shell-runner"
+  url = "https://gogs.korax.fun"
+  id = 1
+  token = "glrt-xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  token_obtained_at = 2026-09-18T14:08:00Z
+  token_expires_at = 0001-01-01T00:00:00Z
+  executor = "shell"
+
+  environment = [
+  	"http_proxy=http://127.0.0.1:10809",
+  	"https_proxy=http://127.0.0.1:10809",
+  	"HTTP_PROXY=http://127.0.0.1:10809",
+  	"HTTPS_PROXY=http://127.0.0.1:10809",
+  	"all_proxy=socks5://127.0.0.1:10809",
+  	"ALL_PROXY=socks5://127.0.0.1:10809"
+  ]
+
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+    [runners.cache.s3]
+      AssumeRoleMaxConcurrency = 0
+    [runners.cache.gcs]
+    [runners.cache.azure]
 ```
 
 然后去 GitLab 页面看 Settings -> CI/CD -> Runners，prod-shell-runner 应该变成绿色在线
@@ -240,38 +275,3 @@ ls -la /opt/koraxtd
 sudo chown gitlab-runner:gitlab-runner /opt
 sudo -u gitlab-runner -H git clone ssh://git@gogs.korax.fun:38022/korax/koraxtd.git /opt/koraxtd
 ```
-
-1. 启动 GitLab Runner 容器
-
-```bash
-docker volume create gitlab-runner-config
-
-docker run -d --name gitlab-runner --restart always \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v gitlab-runner-config:/etc/gitlab-runner \
-  gitlab/gitlab-runner:latest
-```
-
-2. 注册到 GitLab 群组 Runner
-
-```bash
-docker exec -it gitlab-runner gitlab-runner register \
-  --url https://gitlab.example.com/ \
-  --token glrt-xxxxxxxxxxxx \
-  --executor docker \
-  --docker-image alpine:latest \
-  --description "game-server-docker-runner" \
-  --tag-list "game-server,build,deploy,linux,docker" \
-  --run-untagged=true
-```
-
-3. 检查配置
-
-```bash
-docker exec -it gitlab-runner cat /etc/gitlab-runner/config.toml
-
-# 重启
-docker restart gitlab-runner
-```
-
-4. 配合“全部手动触发”的 .gitlab-ci.yml

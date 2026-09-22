@@ -100,4 +100,11 @@ Ubuntu 20.04 64位
 
     # 检查 sshd 监狱状态
     sudo fail2ban-client status sshd
+
+    # 将 IP 加入 Fail2ban 白名单
+    nano /etc/fail2ban/jail.local
+
+    [sshd]
+    enabled = true
+    ignoreip = 127.0.0.1/8 ::1 183.250.125.3
     ```

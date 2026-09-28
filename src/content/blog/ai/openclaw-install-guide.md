@@ -145,6 +145,10 @@ openclaw plugins disable 插件名
 # 更新OpenClaw
 openclaw update
 
+openclaw update --channel stable
+
+openclaw --version
+
 # 安全审计
 openclaw security audit
 

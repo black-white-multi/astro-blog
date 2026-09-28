@@ -155,3 +155,14 @@ tags: ["工作流", "Ubuntu"]
 
   echo fastfetch | sudo tee /etc/profile.d/fastfetch.sh
 ```
+
+## 10. 断电开机
+
+```sh
+sudo setpci -s 00:1f.0 0xa4.b
+
+08开启
+09关闭
+
+sudo setpci -s 00:1f.0 0xa4.b=1:1
+```

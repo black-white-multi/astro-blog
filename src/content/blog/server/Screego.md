@@ -16,10 +16,10 @@ tags: ["工作流"]
   cd /usr/local/bin
 
   # 下载
-  wget https://github.com/screego/server/releases/download/v1.12.3/screego_1.12.3_linux_amd64.tar.gz
+  wget https://github.com/screego/server/releases/download/v1.12.6/screego_1.12.6_linux_amd64.tar.gz
 
   #解压
-  tar xvf screego_1.12.3_linux_amd64.tar.gz
+  tar xvf screego_1.12.6_linux_amd64.tar.gz
 
   #
   chmod +x screego

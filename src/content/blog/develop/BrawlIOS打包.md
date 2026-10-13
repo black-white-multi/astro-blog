@@ -62,19 +62,19 @@ YooAsset -> BuildBuildinFileManifest
 mac上传
 
 ```sh
-ossutil cp DefaultPackage/ oss://korax-oss-hk/Brawl/IOS/v1.0.0 --exclude "*.meta" -r -u
+ossutil cp DefaultPackage/ oss://korax-oss-hk/Brawl/IOS/v1.0.0.5 --exclude "*.meta" -r -u
 ```
 
 win上传
 
 ```sh
-ossutil cp D:\KoraxTD\Unity\Assets\StreamingAssets\Bundles\DefaultPackage oss://korax-oss-hk/Brawl/IOS/v1.0.0 --exclude "*.meta" -r -u
+ossutil cp D:\KoraxTD\Unity\Assets\StreamingAssets\Bundles\DefaultPackage oss://korax-oss-hk/Brawl/IOS/v1.0.0.5 --exclude "*.meta" -r -u
 ```
 
 删除
 
 ```sh
-ossutil rm oss://korax-oss-hk/Brawl/IOS/v1.0.0 -r
+ossutil rm oss://korax-oss-hk/Brawl/IOS/v1.0.0.5 -r
 ```
 
 ## 7. Unity打包Xcode
@@ -102,7 +102,7 @@ Project Settings -> Build
 - zlib升级到最新版本，替换{project}/HybridCLRData/LocalIl2CppData-{platform}/il2cpp/external/zlib目录的代码
 - 清理Library缓存后重新打包
 
-## 塔防服务器
+## 吃鸡服务器
 
 ```sh
 # 配置sudo权限

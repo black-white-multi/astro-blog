@@ -1,7 +1,7 @@
 ---
 title: "Korax Ubuntu 服务器"
 description: ""
-date: "2026-1-1"
+date: "2026-01-01"
 tags: ["工作流", "Ubuntu"]
 ---
 

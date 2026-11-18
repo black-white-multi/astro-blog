@@ -2,10 +2,10 @@
 title: "X-UI HK 服务器"
 description: ""
 date: "2026-01-01"
-tags: ["工作流", "Ubuntu"]
+tags: ["工作流", "Linux"]
 ---
 
-Ubuntu 20.04 64位
+Arch Linux 64位
 
 > ## 3X-UI部署
 
@@ -108,3 +108,5 @@ Ubuntu 20.04 64位
     enabled = true
     ignoreip = 127.0.0.1/8 ::1 183.250.125.3
     ```
+
+> ## 安装logrotate
